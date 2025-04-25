@@ -1,0 +1,193 @@
+.main {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background: url(/magdaEhlers.jpg) no-repeat center center;
+    background-size: cover;
+    align-items: center;
+    overflow: hidden;
+}
+
+.topLeft {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}
+
+.topLeft p {
+    font-size: 40px;
+    color: #ffffff;
+}
+
+.credits {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+}
+
+.credits p {
+    font-size: 15px;
+    color: #ffffff;
+}
+
+.welcome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 30px;
+    left: 50px;
+}
+
+.welcome p {
+    font-size: 50px;
+    color: #ffffff;
+}
+
+.zumbra {
+    display: flex;
+    width: max-content;
+    justify-content: end;
+    align-items: end;
+    position: absolute;
+    bottom: 0;
+    right: 50px;
+}
+
+.zumbra p {
+    font-size: 120px;
+    color: #ffffff;
+    font-family: 'Inria Serif';
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 50px;
+}
+
+.menu nav ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 10px;
+}
+
+.menu nav ul li {
+    font-size: 25px;
+    color: #ffffff;
+    font-family: 'Instrument Serif';
+    width: 10vw;
+    text-align: end;
+}
+
+.menu nav ul li:hover {
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #7c7c7c;
+}
+
+@media screen and (max-width: 600px) {
+
+    .main {
+        flex-direction: column;
+        justify-content: end;
+        align-items: center;
+    }
+
+    .topLeft p {
+        font-size: 40px;
+    }
+
+    .welcome {
+        top: 200px;
+        bottom: unset;
+    }
+
+    .welcome p {
+        font-size: 40px;
+    }
+
+    .zumbra {
+        top: 650px;
+        bottom: unset;
+        left: 50px;
+        right: unset;
+    }
+
+
+    .credits {
+        top: unset;
+        bottom: 50px;
+        right: 50px;
+    }
+
+    .zumbra p {
+        font-size: 80px;
+    }
+
+    .menu {
+        right: unset;
+        margin-bottom: 100px;
+        width: 100%;
+        align-items: center;
+    }
+
+    .menu nav ul {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+    }
+
+    .menu nav ul li {
+        font-size: 25px;
+        width: unset;
+    }
+
+}
+
+@media screen and (max-width: 540px) {
+
+    .zumbra {
+        top: 450px;
+    }
+
+}
+
+
+@media screen and (max-width: 400px) {
+    .topLeft p {
+        font-size: 30px;
+    }
+
+    .welcome p {
+        font-size: 30px;
+    }
+
+    .zumbra {
+        top: 600px;
+    }
+
+    .zumbra p {
+        font-size: 60px;
+    }
+
+    .menu nav ul li {
+        font-size: 20px;
+    }
+
+
+}

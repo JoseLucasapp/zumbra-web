@@ -1,0 +1,147 @@
+.mainGallery {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: #7c7c7c;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+}
+
+.back {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 100px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.back p {
+    font-size: 40px;
+    color: #ffffff;
+}
+
+.back p:hover {
+    text-decoration: underline;
+}
+
+.creditsGallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+}
+
+.creditsGallery p {
+    font-size: 15px;
+    color: #ffffff;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100vh;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.gallery img {
+    width: 100vh;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    z-index: 1;
+    width: 20vw;
+}
+
+.buttons div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    padding: 0;
+    cursor: pointer;
+    width: max-content;
+}
+
+.buttons div p {
+    font-size: 40px;
+    color: #ffffff;
+}
+
+.buttons div p:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 600px) {
+
+    .buttons {
+        width: 80%;
+        right: unset;
+
+
+    }
+
+    .buttons div {
+        margin-bottom: 20px;
+        background-color: #ffffff;
+        width: 30%;
+    }
+
+    .buttons div p {
+        color: #000;
+        font-size: 30px;
+    }
+
+    .gallery {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .gallery img {
+        width: 100vw;
+        height: 100vh;
+        object-fit: contain;
+    }
+
+    .back {
+        top: 20px;
+        left: 20px;
+        z-index: 1;
+        background-color: #ffffff;
+    }
+
+    .back p {
+        font-size: 30px;
+        color: #000000;
+    }
+
+    .creditsGallery {
+        z-index: 1;
+        top: 20px;
+        right: 20px;
+    }
+
+    .creditsGallery p {
+        font-size: 10px;
+    }
+
+
+}

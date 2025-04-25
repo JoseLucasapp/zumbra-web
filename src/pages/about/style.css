@@ -1,0 +1,145 @@
+.mainAbout {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    background-color: #7c7c7c;
+    overflow: hidden;
+    height: max-content;
+    align-items: center;
+}
+
+.top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+    justify-content: space-between;
+    align-self: center;
+    margin-top: 1vh;
+}
+
+.top p {
+    font-size: 70px;
+    color: #ffffff;
+    font-family: "Inria Serif";
+    width: 30%;
+}
+
+.menuAbout {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    width: 50%;
+}
+
+.menuAbout ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 50px;
+    width: 100%;
+    justify-content: end;
+}
+
+.menuAbout ul li {
+    font-size: 25px;
+    color: #ffffff;
+    font-family: 'Instrument Serif';
+    text-align: end;
+}
+
+.menuAbout ul li:hover {
+    cursor: pointer;
+    text-decoration: underline;
+
+}
+
+.canva {
+    width: 50vw;
+    height: 40vw;
+    margin-top: 50px;
+
+}
+
+.canva video {
+    background-color: #ffffff;
+    width: 100%;
+    box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.75);
+}
+
+.aboutText {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 90%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.aboutText .title {
+    width: 50vw;
+    font-size: 50px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #ffffff;
+}
+
+.aboutText .title span {
+    color: #000000;
+}
+
+.aboutText .text {
+    font-size: 25px;
+    color: #ffffff;
+    font-family: "Instrument Serif";
+    margin-bottom: 20px;
+}
+
+.aboutText .text span {
+    color: #000000;
+}
+
+@media screen and (max-width: 600px) {
+
+    .top {
+        flex-direction: column;
+    }
+
+    .top p {
+        width: 90vw;
+        text-align: center;
+        font-size: 40px;
+    }
+
+    .menuAbout {
+        width: 90%;
+        justify-content: center;
+    }
+
+    .menuAbout ul {
+        justify-content: center;
+        gap: 20px;
+
+    }
+
+    .menuAbout ul li {
+        font-size: 18px;
+
+    }
+
+    .canva {
+        width: 90vw;
+        height: 60vw;
+    }
+
+    .aboutText .title {
+        width: 90vw;
+        font-size: 40px;
+    }
+
+    .aboutText .text {
+        font-size: 20px;
+    }
+
+
+}
