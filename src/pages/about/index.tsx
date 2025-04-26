@@ -22,6 +22,10 @@ const About = () => {
                     <br /><br />I wanted to create something that felt welcoming. Something that even non-programmers could read and feel curious, not intimidated. That's how Zumbra was born — <span>a language shaped by simplicity, with just enough structure to express real ideas</span>.
                 </p>
             </div>
+
+            <div className="canva">
+                <img src="/wild.png" alt="Enter the wild side of programming" />
+            </div>
         </section >
     )
 }

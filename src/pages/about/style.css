@@ -56,15 +56,23 @@
 
 .canva {
     width: 50vw;
-    height: 40vw;
-    margin-top: 50px;
+    height: max-content;
+
 
 }
 
 .canva video {
+    margin-top: 50px;
     background-color: #ffffff;
     width: 100%;
     box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.75);
+}
+
+.canva img {
+    background-color: #ffffff;
+    width: 100%;
+    box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.75);
+    margin-bottom: 50px;
 }
 
 .aboutText {
@@ -99,7 +107,7 @@
     color: #000000;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
 
     .top {
         flex-direction: column;
@@ -108,7 +116,7 @@
     .top p {
         width: 90vw;
         text-align: center;
-        font-size: 40px;
+        font-size: 50px;
     }
 
     .menuAbout {
@@ -121,6 +129,9 @@
         gap: 20px;
 
     }
+}
+
+@media screen and (max-width: 600px) {
 
     .menuAbout ul li {
         font-size: 18px;

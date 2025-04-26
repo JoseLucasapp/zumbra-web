@@ -20,6 +20,14 @@ const Gallery = () => {
         {
             url: "/yigithanBal.jpg",
             photographer: "Yigithan Bal"
+        },
+        {
+            url: "/AnilSharma.jpg",
+            photographer: "Anil Sharma"
+        },
+        {
+            url: "/karo.jpg",
+            photographer: "Karo Artavia Solorzano"
         }
     ]
 
@@ -33,11 +41,10 @@ const Gallery = () => {
 
     }
 
-
     const handlePrevious = () => {
         setIndex(index - 1);
         if (index === 0) {
-            setIndex(0);
+            setIndex(images.length - 1);
         }
     }
     return (
@@ -59,7 +66,10 @@ const Gallery = () => {
             </div>
 
             <div className="gallery">
-                <img src={url} alt="" />
+                <div className="img-wrappe">
+                    <img src={url} alt="" />
+                </div>
+
             </div>
         </section>
     )

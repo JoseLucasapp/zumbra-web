@@ -13,11 +13,12 @@
     justify-content: start;
     align-items: start;
     position: absolute;
-    top: 50px;
+    top: 40px;
     left: 50px;
     width: 100px;
     padding: 0;
     cursor: pointer;
+    z-index: 2;
 }
 
 .back p {
@@ -48,15 +49,15 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    width: 100vh;
+    width: 100vw;
     height: 100vh;
     overflow: hidden;
 }
 
 .gallery img {
-    width: 100vh;
-    height: 100vh;
-    object-fit: cover;
+    width: 95%;
+    height: 95vh;
+    object-fit: contain;
     object-position: center;
 }
 
@@ -93,20 +94,24 @@
 @media screen and (max-width: 600px) {
 
     .buttons {
-        width: 80%;
+        width: 90%;
         right: unset;
-
-
     }
 
     .buttons div {
         margin-bottom: 20px;
-        background-color: #ffffff;
         width: 30%;
     }
 
+    .buttons div:nth-child(1) {
+        justify-content: start;
+    }
+
+    .buttons div:nth-child(2) {
+        justify-content: end;
+    }
+
     .buttons div p {
-        color: #000;
         font-size: 30px;
     }
 
@@ -125,12 +130,10 @@
         top: 20px;
         left: 20px;
         z-index: 1;
-        background-color: #ffffff;
     }
 
     .back p {
         font-size: 30px;
-        color: #000000;
     }
 
     .creditsGallery {

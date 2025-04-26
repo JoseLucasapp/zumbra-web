@@ -86,7 +86,7 @@
 }
 
 .menu nav ul li {
-    font-size: 25px;
+    font-size: 30px;
     color: #ffffff;
     font-family: 'Instrument Serif';
     width: 10vw;
@@ -97,6 +97,73 @@
     cursor: pointer;
     background-color: #ffffff;
     color: #7c7c7c;
+}
+
+@media screen and (max-width: 800px) {
+
+    .topLeft {
+        top: 30px;
+    }
+
+    .topLeft p {
+        font-size: 30px;
+    }
+
+    .welcome {
+        bottom: unset;
+        top: 150px;
+    }
+
+    .welcome p {
+        font-size: 40px;
+    }
+
+    .zumbra {
+        bottom: unset;
+        right: unset;
+        top: 200px;
+        left: 50px;
+    }
+
+    .zumbra p {
+        font-size: 100px;
+    }
+
+    .main {
+        flex-direction: column;
+        justify-content: end;
+        align-items: start;
+    }
+
+    .credits {
+        top: unset;
+        right: unset;
+        left: 50px;
+        bottom: 30px;
+    }
+
+    .menu {
+        right: unset;
+        margin-bottom: 100px;
+        width: 100%;
+        left: 50px;
+        align-items: start;
+        justify-content: start;
+    }
+
+    .menu nav ul {
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: start;
+        width: 100%;
+    }
+
+    .menu nav ul li {
+
+        font-size: 20px;
+        width: unset;
+    }
+
 }
 
 @media screen and (max-width: 600px) {
@@ -161,33 +228,64 @@
 
 @media screen and (max-width: 540px) {
 
+    .topLeft {
+        top: 30px;
+    }
+
+    .welcome {
+        top: 170px;
+    }
+
+    .main {
+        flex-direction: column;
+        justify-content: end;
+        align-items: start;
+    }
+
     .zumbra {
-        top: 450px;
+        top: 220px;
+    }
+
+
+    .menu {
+        right: unset;
+        margin-bottom: 120px;
+        width: 100%;
+        left: 50px;
+        align-items: start;
+        justify-content: start;
+    }
+
+    .menu nav ul {
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: start;
+        width: 100%;
+    }
+
+    .menu nav ul li {
+        font-size: 30px;
+        width: unset;
     }
 
 }
 
 
 @media screen and (max-width: 400px) {
-    .topLeft p {
-        font-size: 30px;
+    .topLeft {
+        top: 30px;
     }
 
-    .welcome p {
-        font-size: 30px;
+    .welcome {
+        top: 180px;
     }
 
     .zumbra {
-        top: 600px;
+        top: 210px;
     }
 
-    .zumbra p {
-        font-size: 60px;
+    .menu {
+        margin-bottom: 100px;
     }
-
-    .menu nav ul li {
-        font-size: 20px;
-    }
-
 
 }
