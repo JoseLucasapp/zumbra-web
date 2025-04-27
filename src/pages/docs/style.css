@@ -27,7 +27,7 @@
 .docsContent {
     display: flex;
     width: 90vw;
-    height: 80vh;
+    height: 75vh;
     margin-top: 5vh;
 }
 
@@ -109,7 +109,7 @@
     flex-direction: column;
     list-style: none;
     gap: 5px;
-    width: 100%;
+    width: 95%;
     justify-content: start;
     align-items: start;
     margin: 0;
@@ -118,7 +118,7 @@
 }
 
 .contentData ul li {
-    max-width: 90%;
+    max-width: 100%;
     font-size: 20px;
     color: var(--text-color);
 }
