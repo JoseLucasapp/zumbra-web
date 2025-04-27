@@ -1,0 +1,211 @@
+.mainDocs {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: var(--third-color);
+    overflow: hidden;
+    align-items: center;
+}
+
+.topDocs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+    justify-content: space-between;
+    align-self: center;
+    margin-top: 1vh;
+}
+
+.topDocs p {
+    font-size: 70px;
+    color: var(--text-color);
+    width: 30%;
+}
+
+.docsContent {
+    display: flex;
+    width: 90vw;
+    height: 80vh;
+    margin-top: 5vh;
+}
+
+.contentInfo {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 100%;
+    overflow: hidden;
+    align-items: start;
+    justify-content: start;
+}
+
+.contentInfo h1 {
+    font-size: 50px;
+    color: var(--second-color);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 80%;
+
+}
+
+.contentInfo p {
+    font-size: 25px;
+    color: var(--text-color);
+    width: 70%;
+}
+
+.contentInfo select {
+    font-size: 25px;
+    color: var(--text-color);
+    background-color: var(--second-color);
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+    outline: none;
+    padding: 10px;
+}
+
+.contentData {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 100%;
+    overflow-x: hidden;
+    align-items: start;
+    justify-content: start;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+.contentData::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background-color: var(--second-color);
+}
+
+.contentData::-webkit-scrollbar-thumb {
+    background-color: var(--text-color);
+}
+
+.contentData .content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-items: start;
+    justify-content: start;
+}
+
+.contentData h2 {
+    font-size: 30px;
+    color: var(--second-color);
+}
+
+.contentData ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 5px;
+    width: 100%;
+    justify-content: start;
+    align-items: start;
+    margin: 0;
+    padding: 0;
+    margin-left: 20px;
+}
+
+.contentData ul li {
+    max-width: 90%;
+    font-size: 20px;
+    color: var(--text-color);
+}
+
+.contentData ul li p {
+    font-size: 20px;
+    color: var(--text-color);
+}
+
+.codeLine {
+    background-color: #1e1e1e;
+    /* fundo escuro de código */
+    color: #d4d4d4;
+    /* cor de fonte para código */
+    padding: 1rem;
+    border-radius: 8px;
+    font-family: monospace;
+    white-space: pre-wrap;
+    /* <<< aqui que o \n vira quebra de linha */
+    word-break: break-word;
+    overflow-x: auto;
+}
+
+.codeLine p {
+    font-size: 18px;
+    color: var(--second-color);
+    font-weight: 700;
+}
+
+@media screen and (max-width: 800px) {
+
+    .topDocs {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .topDocs p {
+        width: 90vw;
+        text-align: center;
+        font-size: 50px;
+    }
+
+    .docsContent {
+        flex-direction: column;
+        height: max-content;
+        margin-top: 30px;
+    }
+
+    .contentInfo {
+        width: 100%;
+        height: max-content;
+        margin-bottom: 30px;
+
+    }
+
+    .contentInfo h1 {
+        width: 100%;
+    }
+
+    .contentInfo p {
+        width: 100%;
+        height: max-content;
+    }
+
+    .contentData {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .contentData .content {
+        width: 100%;
+    }
+
+    .contentData h2 {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .contentData ul {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .contentData ul li {
+        width: 100%;
+    }
+
+}

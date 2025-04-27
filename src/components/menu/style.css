@@ -1,0 +1,85 @@
+.topMainMenu {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    width: 100%;
+}
+
+.topMainMenu ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 50px;
+    width: 100%;
+    justify-content: end;
+}
+
+.topMainMenu ul li {
+    font-size: 25px;
+    color: var(--text-color);
+    text-align: end;
+}
+
+.topMainMenu ul li:hover {
+    cursor: pointer;
+    text-decoration: underline;
+
+}
+
+.menuMobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.menuMobile ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.menuMobile ul li {
+    margin-bottom: 20px;
+}
+
+.menuMobile ul li a {
+    text-decoration: none;
+    font-size: 24px;
+    color: var(--text-color);
+}
+
+.menuToggle {
+    background: none;
+    outline: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 800px) {
+
+    .topMainMenu {
+        width: 90%;
+        justify-content: center;
+
+    }
+
+    .topMainMenu ul {
+        justify-content: center;
+        gap: 20px;
+
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .topMainMenu ul li {
+        font-size: 18px;
+
+    }
+}

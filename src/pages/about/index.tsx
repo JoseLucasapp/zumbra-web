@@ -1,13 +1,25 @@
+import { useEffect, useState } from 'react'
 import Menu from '../../components/menu'
 import './style.css'
 const About = () => {
+    const [isMobile, setMobile] = useState(false)
+
+    useEffect(() => {
+        handleISMobile()
+    }, [])
+    const handleISMobile = () => {
+
+        if (window.innerWidth < 800) {
+            setMobile(true)
+        } else {
+            setMobile(false)
+        }
+    }
     return (
         <section className="mainAbout">
-            <div className="top">
+            <div className="topAbout">
                 <a href='/'><p>ZUMBRA</p></a>
-                <nav className="menuAbout">
-                    <Menu />
-                </nav>
+                <Menu currentPage="About" isMobile={isMobile} />
             </div>
 
             <div className="canva">

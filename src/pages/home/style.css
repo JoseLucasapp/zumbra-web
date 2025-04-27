@@ -19,7 +19,7 @@
 
 .topLeft p {
     font-size: 40px;
-    color: #ffffff;
+    color: var(--text-color);
 }
 
 .credits {
@@ -33,7 +33,7 @@
 
 .credits p {
     font-size: 15px;
-    color: #ffffff;
+    color: var(--text-color);
 }
 
 .welcome {
@@ -47,7 +47,7 @@
 
 .welcome p {
     font-size: 50px;
-    color: #ffffff;
+    color: var(--text-color);
 }
 
 .zumbra {
@@ -62,8 +62,7 @@
 
 .zumbra p {
     font-size: 120px;
-    color: #ffffff;
-    font-family: 'Inria Serif';
+    color: var(--text-color);
 }
 
 .menu {
@@ -87,16 +86,15 @@
 
 .menu nav ul li {
     font-size: 30px;
-    color: #ffffff;
-    font-family: 'Instrument Serif';
+    color: var(--text-color);
     width: 10vw;
     text-align: end;
 }
 
 .menu nav ul li:hover {
     cursor: pointer;
-    background-color: #ffffff;
-    color: #7c7c7c;
+    background-color: var(--text-color);
+    color: var(--third-color);
 }
 
 @media screen and (max-width: 800px) {

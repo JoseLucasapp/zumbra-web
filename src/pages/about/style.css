@@ -2,13 +2,13 @@
     display: flex;
     flex-direction: column;
     width: 100vw;
-    background-color: #7c7c7c;
+    background-color: var(--third-color);
     overflow: hidden;
     height: max-content;
     align-items: center;
 }
 
-.top {
+.topAbout {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -18,40 +18,10 @@
     margin-top: 1vh;
 }
 
-.top p {
+.topAbout p {
     font-size: 70px;
-    color: #ffffff;
-    font-family: "Inria Serif";
+    color: var(--text-color);
     width: 30%;
-}
-
-.menuAbout {
-    display: flex;
-    justify-content: end;
-    align-items: end;
-    width: 50%;
-}
-
-.menuAbout ul {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    gap: 50px;
-    width: 100%;
-    justify-content: end;
-}
-
-.menuAbout ul li {
-    font-size: 25px;
-    color: #ffffff;
-    font-family: 'Instrument Serif';
-    text-align: end;
-}
-
-.menuAbout ul li:hover {
-    cursor: pointer;
-    text-decoration: underline;
-
 }
 
 .canva {
@@ -63,13 +33,13 @@
 
 .canva video {
     margin-top: 50px;
-    background-color: #ffffff;
+    background-color: var(--text-color);
     width: 100%;
     box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.75);
 }
 
 .canva img {
-    background-color: #ffffff;
+    background-color: var(--text-color);
     width: 100%;
     box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.75);
     margin-bottom: 50px;
@@ -87,56 +57,41 @@
 .aboutText .title {
     width: 50vw;
     font-size: 50px;
-    color: #ffffff;
+    color: var(--text-color);
     margin-bottom: 20px;
-    border-bottom: 3px solid #ffffff;
+    border-bottom: 3px solid var(--text-color);
 }
 
 .aboutText .title span {
-    color: #000000;
+    color: var(--second-color);
 }
 
 .aboutText .text {
     font-size: 25px;
-    color: #ffffff;
-    font-family: "Instrument Serif";
+    color: var(--text-color);
     margin-bottom: 20px;
 }
 
 .aboutText .text span {
-    color: #000000;
+    color: var(--second-color);
 }
 
 @media screen and (max-width: 800px) {
 
-    .top {
+    .topAbout {
         flex-direction: column;
     }
 
-    .top p {
+    .topAbout p {
         width: 90vw;
         text-align: center;
         font-size: 50px;
     }
 
-    .menuAbout {
-        width: 90%;
-        justify-content: center;
-    }
 
-    .menuAbout ul {
-        justify-content: center;
-        gap: 20px;
-
-    }
 }
 
 @media screen and (max-width: 600px) {
-
-    .menuAbout ul li {
-        font-size: 18px;
-
-    }
 
     .canva {
         width: 90vw;

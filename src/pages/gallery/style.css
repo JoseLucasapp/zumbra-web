@@ -2,7 +2,7 @@
     display: flex;
     width: 100vw;
     height: 100vh;
-    background-color: #7c7c7c;
+    background-color: var(--third-color);
     overflow: hidden;
     align-items: center;
     justify-content: center;
@@ -23,7 +23,7 @@
 
 .back p {
     font-size: 40px;
-    color: #ffffff;
+    color: var(--text-color);
 }
 
 .back p:hover {
@@ -41,7 +41,7 @@
 
 .creditsGallery p {
     font-size: 15px;
-    color: #ffffff;
+    color: var(--text-color);
 }
 
 .gallery {
@@ -84,7 +84,7 @@
 
 .buttons div p {
     font-size: 40px;
-    color: #ffffff;
+    color: var(--text-color);
 }
 
 .buttons div p:hover {
