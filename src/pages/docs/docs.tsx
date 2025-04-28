@@ -366,9 +366,24 @@ export const docsData = () => [
                         "code": "var ok << false;\nif (false) { ok << true } else { ok << false }\nshow(ok); // output: false"
                     }
                 ]
+            },
+            {
+                "title": "Logical operators (and / or)",
+                "data": [
+                    {
+                        "text": "You can combine conditions using and and or."
+                    },
+                    {
+                        "code": "var result << false;\nif (true and true) { result << true }\nshow(result); // output: true"
+                    },
+                    {
+                        "code": "var result << false;\nif (true or false) { result << true }\nshow(result); // output: true"
+                    }
+                ]
             }
         ]
-    },
+    }
+    ,
     {
         "title": "Loops",
         "description": "A zebra doesn't stop running just because it feels like it. In Zumbra, while lets your code keep running — until you tell it otherwise!",
