@@ -9,6 +9,110 @@ const Docs = () => {
     const [isMobile, setMobile] = useState(false)
     const [isMenuOpen, setMenuOpen] = useState(false)
 
+
+    const reserved: Record<string, string> = {
+        "var": "#e06c75",
+        "import": "#e06c75",
+        "or": "#e06c75",
+        "and": "#e06c75",
+        "let": "#e06c75",
+        "const": "#e06c75",
+        "fct": "#61afef",
+        "return": "#56b6c2",
+        "show": "#61afef",
+        "input": "#61afef",
+        "toint": "#61afef",
+        "tofloat": "#61afef",
+        "tostring": "#61afef",
+        "tobool": "#61afef",
+
+        "indexof": "#61afef",
+        "addtoarraystart": "#61afef",
+        "removefromarray": "#61afef",
+        "addtoarrayend": "#61afef",
+        "min": "#61afef",
+        "max": "#61afef",
+        "sizeof": "#61afef",
+        "first": "#61afef",
+        "last": "#61afef",
+        "allbutfirst": "#61afef",
+        "addtodict": "#61afef",
+        "getfromdict": "#61afef",
+        "deletefromdict": "#61afef",
+        "clear": "#61afef",
+
+
+        "if": "#c678dd",
+        "else": "#c678dd",
+        "while": "#c678dd",
+
+        // Booleans e null
+        "true": "#d19a66",
+        "false": "#d19a66",
+        "null": "#c678dd",
+
+
+        // Operadores e símbolos
+        "<<": "#fca503",
+        "<": "#98c379",
+        ">": "#98c379",
+        "<=": "#98c379",
+        ">=": "#98c379",
+        "=": "#98c379",
+        "==": "#98c379",
+        "!=": "#98c379",
+        "(": "#98c379",
+        ")": "#98c379",
+        "{": "#98c379",
+        "}": "#98c379",
+        "]": "#98c379",
+        "[": "#98c379",
+        ",": "#5c6370",
+        "+": "#98c379",
+        "-": "#98c379",
+        "*": "#98c379",
+        "//": "#abb2bf",
+        "/": "#98c379",
+        "%": "#98c379",
+    };
+
+    const stringColor = "#98c379";
+
+
+    const changeColor = (txt: string) => {
+        return txt.replace(
+            /(\/\/[^\n]*|"[^"]*"|'[^']*'|\b[a-zA-Z_]+\b|<<|>>|==|!=|\/|[{}()[\];.,+\-*%=<>])/gm,
+            (match) => {
+                // Comentário de linha
+                if (match.startsWith("//")) {
+                    return `<span style="color: #5c6370">${match}</span>`;
+                }
+
+                if (/^".*"$|^'.*'$/.test(match)) {
+                    return `<span style="color: ${stringColor}">${match}</span>`;
+                }
+
+                const word = match.toLowerCase();
+                if (reserved[word]) {
+                    return `<span style="color: ${reserved[word]}">${match}</span>`;
+                }
+
+                return match;
+            }
+        );
+    };
+
+
+    const handleShowCode = (text: string) => {
+        return (
+            <div
+                style={{ whiteSpace: "pre-wrap", fontFamily: "monospace" }}
+                dangerouslySetInnerHTML={{ __html: changeColor(text) }}
+            />
+        );
+    };
+
+
     useEffect(() => {
         setDoc(data[0])
         handleISMobile()
@@ -109,7 +213,7 @@ const Docs = () => {
                                                 if (item.code) {
                                                     return (
                                                         <li className="codeLine">
-                                                            {`${item.code}`}
+                                                            {handleShowCode(item.code)}
                                                         </li>
                                                     )
                                                 } else {

@@ -65,6 +65,7 @@
     margin-bottom: 10px;
     outline: none;
     padding: 10px;
+    border-radius: 10px;
 }
 
 .contentData {
@@ -183,11 +184,14 @@
 
     .contentInfo h1 {
         width: 100%;
+        font-size: 30px;
+        display: none;
     }
 
     .contentInfo p {
         width: 100%;
         height: max-content;
+        font-size: 18px;
     }
 
     .contentData {
@@ -202,6 +206,7 @@
     .contentData h2 {
         width: 100%;
         margin-top: 10px;
+        font-size: 20px;
     }
 
     .contentData ul {
@@ -212,6 +217,11 @@
 
     .contentData ul li {
         width: 100%;
+        font-size: 15px;
+    }
+
+    .contentData ul li p {
+        font-size: 18px;
     }
 
     .menu-modal {
