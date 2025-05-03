@@ -3,6 +3,7 @@ import Menu from '../../components/menu'
 import './style.css'
 const About = () => {
     const [isMobile, setMobile] = useState(false)
+    const [isMenuOpen, setMenuOpen] = useState(false)
 
     useEffect(() => {
         handleISMobile()
@@ -15,11 +16,52 @@ const About = () => {
             setMobile(false)
         }
     }
+
+    const handleMenu = () => {
+        return (
+            <div className='menu-modal'>
+                <nav>
+                    <ul>
+                        <a href="/about"><li>About</li></a>
+                        <a href="/gallery"><li>Gallery</li></a>
+                        <a href="/docs"><li>Docs</li></a>
+                        <a href="https://github.com/JoseLucasapp/Zumbra-lang"><li>Repository</li></a>
+                        <a href="https://github.com/JoseLucasapp/Zumbra-lang/releases"><li>Download</li></a>
+                    </ul>
+                </nav>
+            </div>
+        )
+    }
+
+    const menu = () => {
+        return (
+            <div className="menu-bar-icon" onClick={() => setMenuOpen(!isMenuOpen)}>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        )
+    }
+
     return (
         <section className="mainAbout">
             <div className="topAbout">
                 <a href='/'><p>ZUMBRA</p></a>
-                <Menu currentPage="About" isMobile={isMobile} />
+                <nav className="menuDocs">
+                    {
+                        isMobile && (
+                            <nav>
+                                {menu()}
+                            </nav>
+                        )
+                    }
+
+                    {
+                        !isMobile && (
+                            <Menu currentPage="About" isMobile={isMobile} />
+                        )
+                    }
+                </nav>
             </div>
 
             <div className="canva">
@@ -38,6 +80,13 @@ const About = () => {
             <div className="canva">
                 <img src="/wild.png" alt="Enter the wild side of programming" />
             </div>
+            {
+                isMenuOpen && (
+                    <nav>
+                        {handleMenu()}
+                    </nav>
+                )
+            }
         </section >
     )
 }

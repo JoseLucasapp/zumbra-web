@@ -23,10 +23,11 @@ const Home = () => {
                 <nav>
                     <ul>
                         <a href="/about"><li>About</li></a>
-                        <a href="/gallery"><li>Gallery</li></a>
                         <a href="/docs"><li>Docs</li></a>
-                        <a href="https://github.com/JoseLucasapp/Zumbra-lang"><li>Repository</li></a>
                         <a href="https://github.com/JoseLucasapp/Zumbra-lang/releases"><li>Download</li></a>
+                        <a href="/gallery"><li>Gallery</li></a>
+                        <a href="https://github.com/JoseLucasapp/Zumbra-lang"><li>Repository</li></a>
+
                     </ul>
                 </nav>
             </div>
@@ -42,6 +43,8 @@ const Home = () => {
             </div>
         )
     }
+
+
     return (
         <section className="main">
             <div className="topLeft">
@@ -84,10 +87,10 @@ const Home = () => {
                         <nav>
                             <ul>
                                 <a href="/about"><li>About</li></a>
-                                <a href="/gallery"><li>Gallery</li></a>
                                 <a href="/docs"><li>Docs</li></a>
-                                <a href="https://github.com/JoseLucasapp/Zumbra-lang"><li>Repository</li></a>
                                 <a href="https://github.com/JoseLucasapp/Zumbra-lang/releases"><li>Download</li></a>
+                                <a href="/gallery"><li>Gallery</li></a>
+                                <a href="https://github.com/JoseLucasapp/Zumbra-lang"><li>Repository</li></a>
                             </ul>
                         </nav>
                     </div>

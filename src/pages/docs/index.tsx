@@ -7,6 +7,7 @@ const data = docsData()
 const Docs = () => {
     const [doc, setDoc] = useState<any>({})
     const [isMobile, setMobile] = useState(false)
+    const [isMenuOpen, setMenuOpen] = useState(false)
 
     useEffect(() => {
         setDoc(data[0])
@@ -25,12 +26,50 @@ const Docs = () => {
         }
     }
 
+    const handleMenu = () => {
+        return (
+            <div className='menu-modal'>
+                <nav>
+                    <ul>
+                        <a href="/about"><li>About</li></a>
+                        <a href="/gallery"><li>Gallery</li></a>
+                        <a href="/docs"><li>Docs</li></a>
+                        <a href="https://github.com/JoseLucasapp/Zumbra-lang"><li>Repository</li></a>
+                        <a href="https://github.com/JoseLucasapp/Zumbra-lang/releases"><li>Download</li></a>
+                    </ul>
+                </nav>
+            </div>
+        )
+    }
+
+    const menu = () => {
+        return (
+            <div className="menu-bar-icon" onClick={() => setMenuOpen(!isMenuOpen)}>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        )
+    }
+
     return (
         <section className="mainDocs">
             <div className="topDocs">
                 <a href='/'><p>ZUMBRA</p></a>
                 <nav className="menuDocs">
-                    <Menu currentPage="Docs" isMobile={isMobile} />
+                    {
+                        isMobile && (
+                            <nav>
+                                {menu()}
+                            </nav>
+                        )
+                    }
+
+                    {
+                        !isMobile && (
+                            <Menu currentPage="Docs" isMobile={isMobile} />
+                        )
+                    }
                 </nav>
             </div>
 
@@ -88,6 +127,14 @@ const Docs = () => {
                     }
                 </div>
             </div>
+
+            {
+                isMenuOpen && (
+                    <nav>
+                        {handleMenu()}
+                    </nav>
+                )
+            }
         </section>
     )
 }

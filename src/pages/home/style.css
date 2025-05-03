@@ -197,6 +197,7 @@
     width: 10vw;
 }
 
+
 @media screen and (max-width: 820px) {
     .topLeft {
         top: unset;

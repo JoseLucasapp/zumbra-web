@@ -6,21 +6,22 @@ const pages = [
         path: "/about"
     },
     {
+        name: "Docs",
+        path: "/docs"
+    }, {
+        name: "Download",
+        path: "https://github.com/JoseLucasapp/Zumbra-lang/releases"
+    },
+    {
         name: "Gallery",
         path: "/gallery"
     },
-    {
-        name: "Docs",
-        path: "/docs"
-    },
+
     {
         name: "Repository",
         path: "https://github.com/JoseLucasapp/Zumbra-lang"
     },
-    {
-        name: "Download",
-        path: "https://github.com/JoseLucasapp/Zumbra-lang/releases"
-    }
+
 ]
 
 type MenuProps = {

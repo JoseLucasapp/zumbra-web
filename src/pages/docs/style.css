@@ -148,16 +148,22 @@
     font-weight: 700;
 }
 
+
+
 @media screen and (max-width: 800px) {
 
     .topDocs {
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        align-items: start;
+        justify-content: start;
+    }
+
+    .topDocs a {
+        width: max-content;
     }
 
     .topDocs p {
-        width: 90vw;
+        width: max-content;
         text-align: center;
         font-size: 50px;
     }
@@ -206,6 +212,75 @@
 
     .contentData ul li {
         width: 100%;
+    }
+
+    .menu-modal {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        z-index: 1;
+        top: 0px;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        background-color: var(--third-color);
+    }
+
+    .menu-modal nav {
+        width: 100vw;
+        height: max-content;
+        position: absolute;
+        top: 80px;
+    }
+
+    .menu-modal nav ul {
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+    }
+
+    .menu-modal nav ul li {
+        font-size: 40px;
+        width: unset;
+        color: var(--text-color);
+        text-align: center;
+    }
+
+    .menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        right: 50px;
+        width: fit-content;
+    }
+
+    .menu nav ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: end;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        gap: 10px;
+    }
+
+    .menu nav ul li {
+        font-size: 30px;
+        color: var(--text-color);
+        width: fit-content;
+        text-align: end;
+        min-width: 15vw;
+    }
+
+    .menu nav ul li:hover {
+        cursor: pointer;
+        background-color: var(--text-color);
+        color: var(--third-color);
     }
 
 }
