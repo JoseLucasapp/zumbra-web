@@ -25,7 +25,20 @@ const Docs = () => {
         "tofloat": "#61afef",
         "tostring": "#61afef",
         "tobool": "#61afef",
-
+        "date": "#61afef",
+        "organize": "#61afef",
+        "sum": "#61afef",
+        "dictvalues": "#61afef",
+        "dictkeys": "#61afef",
+        "sendemail": "#61afef",
+        "sendwhatsapp": "#61afef",
+        "randominteger": "#61afef",
+        "randomfloat": "#61afef",
+        "bhaskara": "#61afef",
+        "capitalize": "#61afef",
+        "tolowercase": "#61afef",
+        "touppercase": "#61afef",
+        "removewhitespaces": "#61afef",
         "indexof": "#61afef",
         "addtoarraystart": "#61afef",
         "removefromarray": "#61afef",
@@ -157,6 +170,7 @@ const Docs = () => {
     }
 
     return (
+
         <section className="mainDocs">
             <div className="topDocs">
                 <a href='/'><p>ZUMBRA</p></a>
@@ -231,6 +245,7 @@ const Docs = () => {
                     }
                 </div>
             </div>
+
 
             {
                 isMenuOpen && (

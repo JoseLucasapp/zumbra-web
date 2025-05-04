@@ -202,7 +202,6 @@ export const docsData = () => [
                     {
                         "code": "var arr << [1, 2, 3];\nremoveFromArray(arr, 1);\nshow(arr); //output: [1,3]"
                     },
-
                     {
                         "text": "Remove the value based on the index."
                     }
@@ -251,14 +250,27 @@ export const docsData = () => [
                     },
                     {
                         "code": "show(allButFirst(arr)); //output: [2,3]"
+                    },
+                    {
+                        "text": "Organizing arrays:"
+                    },
+                    {
+                        "code": "show(organize([2,3,9,1,13,5,5], \"desc\")); //output: [13, 9, 5, 5, 3, 2, 1]\nshow(organize([2,3,9,1,13,5,5], \"asc\")); //output: [1, 2, 3, 5, 5, 9, 13]"
+                    },
+                    {
+                        "text": "Summing arrays:"
+                    },
+                    {
+                        "code": "show(sum([1,2])); //output: 3"
                     }
                 ]
-            }
+            },
         ]
-    },
+    }
+    ,
     {
         "title": "Dicts",
-        "description": "Sometimes, it’s not enough to have just a list — you need names, maps, and meaning. Here dictionaries allow you to associate keys and values, creating powerful collections of knowledge. Let’s see how to build your own fields of wisdom.",
+        "description": "Sometimes, it's not enough to have just a list — you need names, maps, and meaning. Here dictionaries allow you to associate keys and values, creating powerful collections of knowledge. Let’s see how to build your own fields of wisdom.",
         "content": [
             {
                 "title": "Creating a dict",
@@ -297,9 +309,34 @@ export const docsData = () => [
                         "text": "Remove the value based on the key."
                     }
                 ]
+            },
+            {
+                "title": "Get dict values",
+                "data": [
+                    {
+                        "code": "var a << {\"Lucas\":2, \"João\":39};\nshow(dictValues(a)); //output: [2, 39]"
+                    }
+                ]
+            },
+            {
+                "title": "Get dict keys",
+                "data": [
+                    {
+                        "code": "var a << {\"Lucas\":2, \"João\":39};\nshow(dictKeys(a)); //output: [\"Lucas\", \"João\"]"
+                    }
+                ]
+            },
+            {
+                "title": "Get value from dict using function",
+                "data": [
+                    {
+                        "code": "var a << {\"a\":\"v\", \"b\":\"o\"};\nshow(getFromDict(a, \"a\")); //output: \"v\""
+                    }
+                ]
             }
         ]
-    },
+    }
+    ,
     {
         "title": "Functions",
         "description": "In the world of Zumbra, functions are your magic spells. They let you define reusable actions, organize your code, and command the flow of your programs. It’s time to craft your own spells with fct.",
@@ -415,9 +452,141 @@ export const docsData = () => [
                         "text": "Just call import with the file path as a string, and the code inside will be loaded and executed."
                     }
                 ]
+            },
+            {
+                "title": "Get current date and time",
+                "data": [
+                    {
+                        "code": "var a << date();\n\nshow(a);\nshow(a.hour);\nshow(a.minute);\nshow(a.second);\nshow(a.day);\nshow(a.month);\nshow(a.year);"
+                    },
+                    {
+                        "text": "The `date()` function returns an object with the current date and time.\nYou can access:\n- `a.hour`, `a.minute`, `a.second`\n- `a.day`, `a.month`, `a.year`"
+                    }
+                ]
+            }
+        ]
+    },
+
+    {
+        "title": "Messaging",
+        "description": "Sometimes, your code needs to communicate with the outside world. With Zumbra, you can send emails or WhatsApp messages using simple built-in functions. Just configure them properly and you're ready to share your ideas.",
+        "content": [
+            {
+                "title": "Send an Email",
+                "data": [
+                    {
+                        "code": "show(sendEmail({\n  \"subject\": \"Zumbra\",\n  \"body\": \"Zumbra is amazing, you need to test!\",\n  \"sender\": \"your_email@gmail.com\",\n  \"to\": \"the_one_who_will_receive@gmail.com\",\n  \"app_password\": \"0000 0000 0000 0000\"\n}));"
+                    },
+                    {
+                        "text": "📧 *Gmail Configuration Tip:*\nTo send emails via Zumbra, you must generate an **App Password** from your Google Account.\n\nSteps:\n1. Go to: https://myaccount.google.com/apppasswords\n2. Choose 'Mail' and your device name\n3. Copy the generated password and use it in `app_password`"
+                    }
+                ]
+            },
+            {
+                "title": "Send a WhatsApp Message",
+                "data": [
+                    {
+                        "code": "show(sendWhatsapp({\n  \"sid\": \"*****************************\", // Twilio Account SID\n  \"auth\": \"***************************\", // Twilio Auth Token\n  \"senderPhone\": \"11111111111\",\n  \"receiverPhone\": \"558399999999\",\n  \"message\": \"Hello from Zumbra!\"\n}));"
+                    },
+                    {
+                        "text": "📱 *Twilio Configuration Tip:*\nTo send WhatsApp messages:\n1. Create a [Twilio account](https://www.twilio.com/whatsapp)\n2. Get your `Account SID` and `Auth Token`\n3. Use the **sandbox sender number** or a verified business sender number\n\nExample Sender: `+14155238886` (Twilio Sandbox)\nExample Receiver: `+558399999999` (with country code)"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Math",
+        "description": "Math is the language of logic, precision, and the universe. Zumbra brings math to your fingertips with simple and powerful tools. Let's explore how to solve equations and work with numbers!",
+        "content": [
+            {
+                "title": "Solve a quadratic equation using Bhaskara",
+                "data": [
+                    {
+                        "code": "show(bhaskara(2, 5, -3)); //output: [0.5, -3]"
+                    },
+                    {
+                        "text": "The `bhaskara(a, b, c)` function solves quadratic equations of the form:\n\n**ax² + bx + c = 0**\n\nIt returns an array with the real roots (if they exist)."
+                    }
+                ]
+            },
+            {
+                "title": "Generate random integers",
+                "data": [
+                    {
+                        "code": "show(randomInteger(2)); // max: 2, min: 0\nshow(randomInteger()); // max: 10, min: 0\nshow(randomInteger(2, 10)); // max: 10, min: 2"
+                    },
+                    {
+                        "text": "`randomInteger(min, max)` returns a random **whole number** between `min` and `max` (inclusive).\nIf no values are passed, defaults are `min = 0` and `max = 10`."
+                    }
+                ]
+            },
+            {
+                "title": "Generate random floats",
+                "data": [
+                    {
+                        "code": "show(randomFloat(1, 3)); // max: 3, min: 1\nshow(randomFloat(1)); // max: 1, min: 0\nshow(randomFloat()); // max: 10, min: 0"
+                    },
+                    {
+                        "text": "`randomFloat(min, max)` returns a **decimal number** between `min` and `max` (exclusive of max).\nLike `randomInteger`, defaults are `min = 0` and `max = 10` when no parameters are provided."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Strings",
+        "description": "Strings are the voice of your code — carrying messages, labels, and even poetry. With Zumbra, you can easily transform, clean, and format strings to fit your needs. Let's explore how to work with text!",
+        "content": [
+            {
+                "title": "Capitalize the first letter",
+                "data": [
+                    {
+                        "code": "show(capitalize(\"lucas\")); //output: Lucas"
+                    },
+                    {
+                        "text": "Makes the first letter uppercase and the rest lowercase. Perfect for names and titles."
+                    }
+                ]
+            },
+            {
+                "title": "Convert to lowercase",
+                "data": [
+                    {
+                        "code": "show(toLowercase(\"LUCAS\")); //output: lucas"
+                    },
+                    {
+                        "text": "Converts all letters to lowercase."
+                    }
+                ]
+            },
+            {
+                "title": "Convert to uppercase",
+                "data": [
+                    {
+                        "code": "show(toUppercase(\"lucas\")); //output: LUCAS"
+                    },
+                    {
+                        "text": "Converts all letters to uppercase."
+                    }
+                ]
+            },
+            {
+                "title": "Remove all whitespaces",
+                "data": [
+                    {
+                        "code": "show(removeWhiteSpaces(\"H  ell o W orl     d\")); //output: HelloWorld"
+                    },
+                    {
+                        "text": "Eliminates all spaces from the string, including in the middle and at the ends."
+                    }
+                ]
             }
         ]
     }
+
+
+
 
 
 

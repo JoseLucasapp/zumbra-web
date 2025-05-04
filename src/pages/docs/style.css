@@ -131,14 +131,11 @@
 
 .codeLine {
     background-color: #1e1e1e;
-    /* fundo escuro de código */
     color: #d4d4d4;
-    /* cor de fonte para código */
     padding: 1rem;
     border-radius: 8px;
     font-family: monospace;
     white-space: pre-wrap;
-    /* <<< aqui que o \n vira quebra de linha */
     word-break: break-word;
     overflow-x: auto;
 }
