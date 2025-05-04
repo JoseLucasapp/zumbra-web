@@ -481,7 +481,22 @@ const messaging = {
                     "code": "show(sendEmail({\n  \"subject\": \"Zumbra\",\n  \"body\": \"Zumbra is amazing, you need to test!\",\n  \"sender\": \"your_email@gmail.com\",\n  \"to\": \"the_one_who_will_receive@gmail.com\",\n  \"app_password\": \"0000 0000 0000 0000\"\n}));"
                 },
                 {
-                    "text": "📧 *Gmail Configuration Tip:*\nTo send emails via Zumbra, you must generate an **App Password** from your Google Account.\n\nSteps:\n1. Go to: https://myaccount.google.com/apppasswords\n2. Choose 'Mail' and your device name\n3. Copy the generated password and use it in `app_password`"
+                    "text": "📧 Gmail Configuration Tip:"
+                },
+                {
+                    "text": "To send emails via Zumbra, you must generate an App Password from your Google Account."
+                },
+                {
+                    "text": "Steps:"
+                },
+                {
+                    "text": "1. Go to: https://myaccount.google.com/apppasswords"
+                },
+                {
+                    "text": "2. Choose 'Mail' and your device name."
+                },
+                {
+                    "text": "3. Copy the generated password and use it in `app_password`"
                 }
             ]
         },
@@ -489,10 +504,25 @@ const messaging = {
             "title": "Send a WhatsApp Message",
             "data": [
                 {
-                    "code": "show(sendWhatsapp({\n  \"sid\": \"*****************************\", // Twilio Account SID\n  \"auth\": \"***************************\", // Twilio Auth Token\n  \"senderPhone\": \"11111111111\",\n  \"receiverPhone\": \"558399999999\",\n  \"message\": \"Hello from Zumbra!\"\n}));"
+                    "code": "show(sendWhatsapp({\n  \"sid\": \"*\", // Twilio Account SID\n  \"auth\": \"*\", // Twilio Auth Token\n  \"senderPhone\": \"11111111111\",\n  \"receiverPhone\": \"558399999999\",\n  \"message\": \"Hello from Zumbra!\"\n}));"
                 },
                 {
-                    "text": "📱 *Twilio Configuration Tip:*\nTo send WhatsApp messages:\n1. Create a [Twilio account](https://www.twilio.com/whatsapp)\n2. Get your `Account SID` and `Auth Token`\n3. Use the **sandbox sender number** or a verified business sender number\n\nExample Sender: `+14155238886` (Twilio Sandbox)\nExample Receiver: `+558399999999` (with country code)"
+                    "text": "To send WhatsApp messages:"
+                },
+                {
+                    "text": "1. Create a [Twilio account](https://www.twilio.com/whatsapp)"
+                },
+                {
+                    "text": "2. Get your `Account SID` and `Auth Token`"
+                },
+                {
+                    "text": "3. Use the sandbox sender number or a verified business sender number"
+                },
+                {
+                    "text": "Example Sender: `14155238886` (Twilio Sandbox, without the +)"
+                },
+                {
+                    "text": "Example Receiver: `558399999999` (with country code without the +)"
                 }
             ]
         }
@@ -510,7 +540,7 @@ const math = {
                     "code": "show(bhaskara(2, 5, -3)); //output: [0.5, -3]"
                 },
                 {
-                    "text": "The `bhaskara(a, b, c)` function solves quadratic equations of the form:\n\n**ax² + bx + c = 0**\n\nIt returns an array with the real roots (if they exist)."
+                    "text": "The `bhaskara(a, b, c)` function solves quadratic equations of the form:\n\nax² + bx + c = 0\n\nIt returns an array with the real roots (if they exist)."
                 }
             ]
         },
@@ -521,7 +551,7 @@ const math = {
                     "code": "show(randomInteger(2)); // max: 2, min: 0\nshow(randomInteger()); // max: 10, min: 0\nshow(randomInteger(2, 10)); // max: 10, min: 2"
                 },
                 {
-                    "text": "`randomInteger(min, max)` returns a random **whole number** between `min` and `max` (inclusive).\nIf no values are passed, defaults are `min = 0` and `max = 10`."
+                    "text": "`randomInteger(min, max)` returns a random whole number between `min` and `max` (inclusive).\nIf no values are passed, defaults are `min = 0` and `max = 10`."
                 }
             ]
         },
@@ -532,7 +562,7 @@ const math = {
                     "code": "show(randomFloat(1, 3)); // max: 3, min: 1\nshow(randomFloat(1)); // max: 1, min: 0\nshow(randomFloat()); // max: 10, min: 0"
                 },
                 {
-                    "text": "`randomFloat(min, max)` returns a **decimal number** between `min` and `max` (exclusive of max).\nLike `randomInteger`, defaults are `min = 0` and `max = 10` when no parameters are provided."
+                    "text": "`randomFloat(min, max)` returns a decimal number between `min` and `max` (exclusive of max).\nLike `randomInteger`, defaults are `min = 0` and `max = 10` when no parameters are provided."
                 }
             ]
         }

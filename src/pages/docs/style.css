@@ -213,8 +213,9 @@
     }
 
     .contentData ul li {
-        width: 100%;
+        width: 92%;
         font-size: 15px;
+        overflow: scroll;
     }
 
     .contentData ul li p {
@@ -289,5 +290,4 @@
         background-color: var(--text-color);
         color: var(--third-color);
     }
-
 }

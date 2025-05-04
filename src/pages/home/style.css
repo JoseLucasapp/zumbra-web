@@ -246,7 +246,8 @@
         align-items: center;
         overflow: hidden;
         width: 100vw;
-        background: url(/tarynElliott.jpeg) no-repeat center center;
+        background: url(/GlenMichaelsen.avif) no-repeat;
+        background-position: 30%;
         background-size: cover;
     }
 

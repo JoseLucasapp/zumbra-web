@@ -59,7 +59,7 @@
     font-size: 50px;
     color: var(--text-color);
     margin-bottom: 20px;
-    border-bottom: 3px solid var(--text-color);
+    border-bottom: 3px solid var(--second-color);
 }
 
 .aboutText .title span {

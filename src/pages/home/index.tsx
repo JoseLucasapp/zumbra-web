@@ -54,7 +54,7 @@ const Home = () => {
             <div className="credits">
                 {
                     isMobile && (
-                        <p>Photo by Taryn Elliott</p>
+                        <p>Photo by Glen Michaelsen</p>
                     )
                 }
                 {

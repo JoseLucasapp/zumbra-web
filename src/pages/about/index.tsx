@@ -80,6 +80,14 @@ const About = () => {
             <div className="canva">
                 <img src="/wild.png" alt="Enter the wild side of programming" />
             </div>
+
+            <div className="aboutText">
+                <p className='title'>Why Zebras?</p>
+                <p className='text'>
+                    Because penguins, elephants, and Aliens were taken.
+                </p>
+            </div>
+
             {
                 isMenuOpen && (
                     <nav>

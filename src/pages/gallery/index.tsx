@@ -6,27 +6,27 @@ const Gallery = () => {
 
     const images = [
         {
-            url: "/magdaEhlers.jpg",
+            url: "https://images.pexels.com/photos/2118656/pexels-photo-2118656.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
             photographer: "Magda Ehlers"
         },
         {
-            url: "/davidRama.jpg",
+            url: "https://images.pexels.com/photos/619863/pexels-photo-619863.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
             photographer: "David Rama"
         },
         {
-            url: "/pixabay.jpg",
+            url: "https://images.pexels.com/photos/47349/texture-zebra-stripes-47349.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
             photographer: "Pixabay"
         },
         {
-            url: "/yigithanBal.jpg",
+            url: "https://images.pexels.com/photos/773009/pexels-photo-773009.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
             photographer: "Yigithan Bal"
         },
         {
-            url: "/AnilSharma.jpg",
+            url: "https://images.pexels.com/photos/30839484/pexels-photo-30839484/free-photo-of-zebra-smiling-in-natural-habitat.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
             photographer: "Anil Sharma"
         },
         {
-            url: "/karo.jpg",
+            url: "https://images.pexels.com/photos/15478061/pexels-photo-15478061/free-photo-of-zebra-in-funny-close-up.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
             photographer: "Karo Artavia Solorzano"
         }
     ]
