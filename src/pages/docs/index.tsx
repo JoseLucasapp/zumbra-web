@@ -53,6 +53,13 @@ const Docs = () => {
         "getfromdict": "#61afef",
         "deletefromdict": "#61afef",
         "clear": "#61afef",
+        "get": "#61afef",
+        "json_parse": "#61afef",
+        "registerroute": "#61afef",
+        "server": "#61afef",
+        "html": "#61afef",
+        "servestatic": "#61afef",
+        "servefile": "#61afef",
 
 
         "if": "#c678dd",

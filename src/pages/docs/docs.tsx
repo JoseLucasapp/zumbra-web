@@ -371,7 +371,10 @@ const inputAndOutput = {
             "title": "Using show",
             "data": [
                 {
-                    "code": "show(\"Zumbra\"); //output: Zumbra."
+                    "code": "show(\"{} + {} = {}\", 1, 1, 1+1); //output: 1 + 1 = 2\nshow(\"{}\", 1); //output: 1\nshow(\"{}\"); //output: {}\nshow(\"Zumbra\"); //output: Zumbra"
+                },
+                {
+                    "text": "`show()` supports string formatting with placeholders `{}`.\nEach `{}` is replaced by the corresponding argument in order.\n\n- If no arguments are given, the placeholder remains unchanged.\n- If the string contains no placeholders, it's printed as-is."
                 }
             ]
         },
@@ -569,6 +572,63 @@ const math = {
     ]
 }
 
+const http = {
+    "title": "HTTP",
+    "description": "HTTP is the backbone of the modern web. With Zumbra, you can easily create servers and APIs by registering routes, serving files, and processing data. Let’s explore how to use these tools!",
+    "content": [
+        {
+            "title": "Make a GET request and parse JSON",
+            "data": [
+                {
+                    "code": "var getIp << get(\"https://httpbin.org/ip\");\nvar json << json_parse(getIp[\"body\"]);\nshow(json[\"origin\"]);"
+                },
+                {
+                    "text": "Use `get(url)` to make an HTTP GET request. The result contains the body, status code, and headers.\n\nUse `json_parse()` to convert the response `body` into a usable JSON object."
+                }
+            ]
+        },
+        {
+            "title": "Register simple routes",
+            "data": [
+                {
+                    "code": "registerRoute(\"/\", \"&lt;h1&gt;Home&lt;/h1&gt;\");\nregisterRoute(\"/about\", \"&lt;h1&gt;About&lt;/h1&gt;\");\nregisterRoute(\"/contact\", \"&lt;h1&gt;Contact&lt;/h1&gt;\");\n\nserver(3333);"
+                },
+                {
+                    "text": "Use `registerRoute(path, html)` to define routes that return raw HTML.\n\nStart the server with `server(port)` to make your app accessible on the desired port."
+                }
+            ]
+        },
+        {
+            "title": "Serve static files (CSS, JS, images)",
+            "data": [
+                {
+                    "code": "serveStatic(\"/static\", \"./code_examples/http/html/assets\");\nserver(3333);"
+                },
+                {
+                    "text": "`serveStatic(urlPath, folder)` maps a URL to a local folder with static files.\n\nThis allows you to serve images, JS files, and CSS, just like popular web frameworks."
+                }
+            ]
+        },
+        {
+            "title": "Use HTML files as response with template data",
+            "data": [
+                {
+                    "code": "registerRoute(\"GET\", \"/\", serveFile(\"./code_examples/http/html/template.html\", {\"name\": \"Zumbra\"}));\nserver(3333);"
+                },
+                {
+                    "text": "Use `serveFile(path, data)` to return an HTML file with variable substitution. Keys in `data` replace `{{keys}}` inside the HTML file.\n\nSee an example template below."
+                },
+                {
+                    "text": "Example `template.html`:"
+                },
+                {
+                    "code": "<!DOCTYPE html>\n<html>\n<head>\n  <title>Welcome</title>\n</head>\n<body>\n  <h1>Hello, {{name}}!</h1>\n</body>\n</html>"
+                }
+            ]
+        }
+    ]
+}
+
 
 const strings = {
     "title": "Strings",
@@ -621,4 +681,4 @@ const strings = {
     ]
 }
 
-export const docsData = () => [installation, basics, inputAndOutput, strings, types, math, conditionals, loops, arrays, dicts, functions, messaging, extras]
+export const docsData = () => [installation, basics, inputAndOutput, strings, types, math, conditionals, loops, arrays, dicts, functions, messaging, extras, http]
