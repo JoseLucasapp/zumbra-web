@@ -88,6 +88,17 @@ const About = () => {
                 </p>
             </div>
 
+            <div className="aboutText">
+                <p className='title'>Who is behind ZUMBRA?</p>
+                <p className='text'>
+                    Lucas Freitas, or joselucasapp (for github community), i am not only a software developer, i like to think that i am a problems solver and a technology lover, Zumbra was created to
+                    destroy the barriers of programming and make it more accessible to everyone. First and foremost, the thing you need to know to be a "Zumbra programmer" is ENGLISH, because all the zumbra commands are very descritive, so if you know english you will understand everything, it looks like a chat when you are coding.
+
+                    <br /><br />
+                    You can find me on <a href='https://www.instagram.com/jlucasgf' target='_blank'>instagram</a>, <a href='https://www.linkedin.com/in/jlgf524150/'>linkedin</a> and <a href="https://github.com/JoseLucasapp">github</a>. Contact me there, i love to talk about Zumbra.
+                </p>
+            </div>
+
             {
                 isMenuOpen && (
                     <nav>

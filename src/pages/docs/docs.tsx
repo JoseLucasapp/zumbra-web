@@ -681,4 +681,29 @@ const strings = {
     ]
 }
 
-export const docsData = () => [installation, basics, inputAndOutput, strings, types, math, conditionals, loops, arrays, dicts, functions, messaging, extras, http]
+const build = {
+    "title": "Building Zumbra apps",
+    "description": "Ok, you ended your zumbra app, now you want to deploy it? Here's how you can build a zumbra app :",
+    "content": [
+        {
+            "title": "Build a zumbra app using the Zumbra CLI",
+            "data": [
+                {
+                    "code": "zumbra build 'path-to-your-zumbra-app-file'"
+                },
+                {
+                    "text": "Using the prompt you can build a zumbra app using the Zumbra CLI. Just copy the path to the zumbra app file and press enter."
+                },
+
+                {
+                    "code": "/build \n    └── go.mod \n    └── main.go \n    └── go.sum \n    └── zumbra-app"
+                },
+                {
+                    "text": "This will create a new folder called `build` with the compiled code, ready to be deployed."
+                },
+            ]
+        }
+    ],
+}
+
+export const docsData = () => [installation, basics, inputAndOutput, strings, types, math, conditionals, loops, arrays, dicts, functions, messaging, extras, http, build]
