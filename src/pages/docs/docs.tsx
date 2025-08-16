@@ -469,6 +469,17 @@ const extras = {
                     "text": "The `date()` function returns an object with the current date and time.\nYou can access:\n- `a.hour`, `a.minute`, `a.second`\n- `a.day`, `a.month`, `a.year`"
                 }
             ]
+        },
+        {
+            "title": "Env files",
+            "data": [
+                {
+                    "code": "dotenvLoad(\".env\");\n\nvar key << dotenvGet(\"API_KEY\");\n\nvar environment << dotenvGet(\"ENV\");"
+                },
+                {
+                    "text": "You can use dotenvLoad function to get env files, and dotenvGet function to get the .env keys."
+                }
+            ]
         }
     ]
 }

@@ -57,6 +57,8 @@ export const reserved: Record<string, string> = {
     "mysqlshowtables": "#61afef",
     "mysqlshowtablecolumns": "#61afef",
     "mysqldroptable": "#61afef",
+    "dotenvload": "#61afef",
+    "dotenvget": "#61afef",
 
     "if": "#c678dd",
     "else": "#c678dd",
