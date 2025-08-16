@@ -706,4 +706,101 @@ const build = {
     ],
 }
 
-export const docsData = () => [installation, basics, inputAndOutput, strings, types, math, conditionals, loops, arrays, dicts, functions, messaging, extras, http, build]
+
+const mysqlExamples = {
+    "title": "MySQL",
+    "description": "With Zumbra, you can connect to MySQL databases and perform operations like creating tables, inserting records, updating, deleting, and selecting data — all with simple built-in functions.",
+    "content": [
+        {
+            "title": "Connect to database",
+            "data": [
+                {
+                    "code": "mysqlConnection(\"0.0.0.0\",\"3306\",\"root\",\"123456789\",\"zumbra\"); //host, port, user, password, database"
+                },
+                {
+                    "text": "Opens a connection to your MySQL database."
+                }
+            ]
+        },
+        {
+            "title": "Create table",
+            "data": [
+                {
+                    "code": "mysqlCreateTable(\"users\", \"id INT NOT NULL, name VARCHAR(20), PRIMARY KEY (ID)\");"
+                },
+                {
+                    "text": "Creates a table named `users` with columns `id` and `name`."
+                }
+            ]
+        },
+        {
+            "title": "Insert into table",
+            "data": [
+                {
+                    "code": "mysqlInsertIntoTable(\"users\", ({\"id\": 0,\"name\": \"Lucas\"}));"
+                },
+                {
+                    "text": "Inserts a new record into the `users` table."
+                }
+            ]
+        },
+        {
+            "title": "Select values",
+            "data": [
+                {
+                    "code": "mysqlGetFromTable(\"users\", \"*\", \"name = 'Lucas'\"); //output: [{id:0, name:Lucas}]\n\nmysqlGetFromTable(\"users\", \"name\", \"name = 'Lucas' and id = 0\"); //output: [{name:Lucas}]"
+                },
+                {
+                    "text": "Retrieves records from the `users` table using conditions."
+                }
+            ]
+        },
+        {
+            "title": "Update values",
+            "data": [
+                {
+                    "code": "mysqlUpdateIntoTable(\"users\", {\"name\": \"José Lucas\"}, \"id = 0\"); //output: Record updated successfully"
+                },
+                {
+                    "text": "Updates an existing record that matches the condition."
+                }
+            ]
+        },
+        {
+            "title": "Delete values",
+            "data": [
+                {
+                    "code": "mysqlDeleteFromTable(\"users\", \"id = 0\"); //output: Record deleted successfully"
+                },
+                {
+                    "text": "Deletes a record from the table based on a condition."
+                }
+            ]
+        },
+        {
+            "title": "Show tables and columns",
+            "data": [
+                {
+                    "code": "mysqlShowTables(); //output: [\"users\"]\nmysqlShowTableColumns(\"users\"); //output: [\"id\", \"name\"]"
+                },
+                {
+                    "text": "Lists all tables in the database and shows the columns of a specific table."
+                }
+            ]
+        },
+        {
+            "title": "Drop table",
+            "data": [
+                {
+                    "code": "mysqlDropTable(\"users\"); //output: Table 'users' deleted successfully"
+                },
+                {
+                    "text": "Deletes an entire table and its data from the database."
+                }
+            ]
+        }
+    ]
+}
+
+
+export const docsData = () => [installation, basics, inputAndOutput, strings, types, math, conditionals, loops, arrays, dicts, functions, messaging, extras, http, mysqlExamples, build]
