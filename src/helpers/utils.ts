@@ -64,13 +64,10 @@ export const reserved: Record<string, string> = {
     "else": "#c678dd",
     "while": "#c678dd",
 
-    // Booleans e null
     "true": "#d19a66",
     "false": "#d19a66",
     "null": "#c678dd",
 
-
-    // Operadores e símbolos
     "<<": "#fca503",
     "<": "#98c379",
     ">": "#98c379",
