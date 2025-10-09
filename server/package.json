@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./server.mjs"
+    "start": "node ./server.mjs",
+    "postinstall": "chmod +x ./zumbra || true"
   },
   "keywords": [],
   "author": "",
