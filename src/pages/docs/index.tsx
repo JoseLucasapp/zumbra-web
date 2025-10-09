@@ -10,17 +10,12 @@ const Docs = () => {
     const [isMobile, setMobile] = useState(false)
     const [isMenuOpen, setMenuOpen] = useState(false)
 
-
-
-
     const stringColor = "#98c379";
-
 
     const changeColor = (txt: string) => {
         return txt.replace(
             /(\/\/[^\n]*|"[^"]*"|'[^']*'|\b[a-zA-Z_]+\b|<<|>>|==|!=|\/|[{}()[\];.,+\-*%=<>])/gm,
             (match) => {
-                // Comentário de linha
                 if (match.startsWith("//")) {
                     return `<span style="color: #5c6370">${match}</span>`;
                 }
@@ -170,6 +165,9 @@ const Docs = () => {
                 </div>
             </div>
 
+            <footer>
+                <a href="/playground" target="_blank">Test our playground !</a>
+            </footer>
 
             {
                 isMenuOpen && (

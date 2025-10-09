@@ -8,7 +8,7 @@ const API_URL = import.meta.env.VITE_API_URL || "http://localhost:4000";
 export default function App() {
     const editorRef = useRef<HTMLDivElement>(null);
     const [editor, setEditor] = useState<monaco.editor.IStandaloneCodeEditor | null>(null);
-    const [out, setOut] = useState("pronto");
+    const [out, setOut] = useState("");
 
     useEffect(() => {
         if (!editorRef.current) return;
@@ -94,7 +94,7 @@ export default function App() {
 
     async function run() {
         const code = editor?.getValue() ?? "";
-        setOut("executando…");
+        setOut("running... it can take time, we are using free services :)");
         const res = await fetch(`${API_URL}/api/run`, {
             method: "POST",
             headers: { "content-type": "application/json" },
