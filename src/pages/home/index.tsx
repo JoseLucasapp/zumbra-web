@@ -2,7 +2,9 @@ import { Link } from 'react-router-dom'
 import SiteShell from '../../components/SiteShell'
 import { externalLinks, highlights, principles, stats } from '../../data/site'
 
-const CURRENT_VERSION = import.meta.env.VITE_VERSION
+import './style.css'
+
+const CURRENT_VERSION = '0.1.4'
 
 export default function Home() {
   return (
@@ -30,7 +32,7 @@ export default function Home() {
 
           <div className="hero-release">
             <span className="release-label">Latest release</span>
-            <strong> Zumbra {CURRENT_VERSION}</strong>
+            <strong>Zumbra {CURRENT_VERSION}</strong>
           </div>
 
           <div className="stats-grid">
@@ -66,6 +68,67 @@ export default function Home() {
               {item}
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="content-section shell-container">
+        <div className="section-heading">
+          <div>
+            <span className="eyebrow">Official editor</span>
+            <h2>ZumbroIDE is part of the Zumbra ecosystem.</h2>
+          </div>
+          <a
+            href="https://github.com/JoseLucasapp/zumbroide"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-link"
+          >
+            View repository
+          </a>
+        </div>
+
+        <div className="zumbroide-card">
+          <div className="zumbroide-copy">
+            <p className="zumbroide-text">
+              ZumbroIDE is a lightweight terminal-based editor written in C, built for speed, simplicity,
+              and hackability. It is designed both as a practical coding tool and as a way to understand
+              how editors work under the hood.
+            </p>
+
+            <div className="zumbroide-points">
+              <div className="zumbroide-point">Fast terminal rendering</div>
+              <div className="zumbroide-point">Syntax highlighting for C and Zumbra</div>
+              <div className="zumbroide-point">Live search and incremental save</div>
+              <div className="zumbroide-point">Pure ANSI C with zero external dependencies</div>
+              <div className="zumbroide-point">Small binary, clean modular architecture</div>
+              <div className="zumbroide-point">Linux, macOS, and WSL2 support</div>
+            </div>
+
+            <div className="hero-actions">
+              <a
+                className="button button-primary"
+                href="https://github.com/JoseLucasapp/zumbroide"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Explore ZumbroIDE
+              </a>
+            </div>
+          </div>
+
+          <div className="zumbroide-visual">
+            <div className="zumbroide-logo-wrap">
+              <img
+                src="/zumbroide-logo.png"
+                alt="ZumbroIDE logo"
+                className="zumbroide-logo"
+              />
+            </div>
+            <div className="hero-note">
+              <span className="dot" />
+              A lightweight editor for Zumbra and low-level tooling enthusiasts.
+            </div>
+          </div>
         </div>
       </section>
 
