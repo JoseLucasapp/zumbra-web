@@ -99,6 +99,37 @@
     color: var(--third-color);
 }
 
+.hero-meta {
+    margin-bottom: 1rem;
+}
+
+.version-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid rgba(65, 39, 122, 0.14);
+    background: rgba(110, 68, 255, 0.06);
+    color: #2f235a;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.hero-release {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.5rem;
+    color: #433d57;
+    font-size: 0.95rem;
+}
+
+.release-label {
+    color: #7b7690;
+}
+
 
 @media screen and (max-width: 1100px) and (min-height: 1366px) {
     .topLeft {

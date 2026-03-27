@@ -1,120 +1,122 @@
-import { useEffect, useRef, useState } from "react";
-import * as monaco from "monaco-editor";
-import "monaco-editor/min/vs/editor/editor.main.css";
-import { reserved } from "../../helpers/utils";
+import { useEffect, useRef, useState } from 'react'
+import * as monaco from 'monaco-editor'
+import 'monaco-editor/min/vs/editor/editor.main.css'
+import { reserved } from '../../helpers/utils'
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:4000";
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000'
 
-export default function App() {
-    const editorRef = useRef<HTMLDivElement>(null);
-    const [editor, setEditor] = useState<monaco.editor.IStandaloneCodeEditor | null>(null);
-    const [out, setOut] = useState("");
+export default function Playground() {
+  const editorRef = useRef<HTMLDivElement>(null)
+  const [editor, setEditor] = useState<monaco.editor.IStandaloneCodeEditor | null>(null)
+  const [out, setOut] = useState('')
 
-    useEffect(() => {
-        if (!editorRef.current) return;
-        monaco.languages.register({ id: "zumbra" });
-        const keywordCases = Object.fromEntries(
-            Object.keys(reserved)
-                .filter((k) => /^[a-zA-Z_]\w*$/.test(k))
-                .map((k) => [k, "keyword"])
-        );
+  useEffect(() => {
+    if (!editorRef.current) return
 
-        monaco.languages.setMonarchTokensProvider("zumbra", {
-            tokenizer: {
-                root: [
-                    [/[a-zA-Z_]\w*/, { cases: keywordCases }],
-                    [/\d+(\.\d+)?/, "number"],
-                    [/".*?"/, "string"],
-                    [/'[^']*'/, "string"],
-                    [/\/\/.*$/, "comment"],
-                    [/[{}()\[\]]/, "@brackets"],
-                    [/[<>!=+\-*/%]+/, "operator"],
-                ],
-            },
-        });
+    monaco.languages.register({ id: 'zumbra' })
 
+    const keywordCases = Object.fromEntries(
+      Object.keys(reserved)
+        .filter((key) => /^[a-zA-Z_]\w*$/.test(key))
+        .map((key) => [key, 'keyword'])
+    )
 
-        monaco.languages.registerCompletionItemProvider("zumbra", {
-            provideCompletionItems: (model, position) => {
-                const word = model.getWordUntilPosition(position);
-                const range = {
-                    startLineNumber: position.lineNumber,
-                    endLineNumber: position.lineNumber,
-                    startColumn: word.startColumn,
-                    endColumn: word.endColumn,
-                };
+    monaco.languages.setMonarchTokensProvider('zumbra', {
+      tokenizer: {
+        root: [
+          [/[a-zA-Z_]\w*/, { cases: keywordCases }],
+          [/\d+(\.\d+)?/, 'number'],
+          [/".*?"/, 'string'],
+          [/'[^']*'/, 'string'],
+          [/\/\/.*$/, 'comment'],
+          [/[{}()\[\]]/, '@brackets'],
+          [/[<>!=+\-*/%]+/, 'operator'],
+        ],
+      },
+    })
 
-                return {
-                    suggestions: Object.keys(reserved).map((kw) => ({
-                        label: kw,
-                        kind: monaco.languages.CompletionItemKind.Keyword,
-                        insertText: kw,
-                        range,
-                    })),
-                };
-            },
-        });
+    monaco.editor.defineTheme('zumbra-light', {
+      base: 'vs',
+      inherit: true,
+      rules: [
+        ...Object.entries(reserved).map(([keyword, color]) => ({
+          token: `keyword.${keyword}`,
+          foreground: color.replace('#', ''),
+        })),
+        { token: 'number', foreground: '0F172A' },
+        { token: 'string', foreground: '6D28D9' },
+        { token: 'comment', foreground: '64748B', fontStyle: 'italic' },
+      ],
+      colors: {
+        'editor.background': '#FFFFFF',
+        'editorLineNumber.foreground': '#94A3B8',
+      },
+    })
 
+    const instance = monaco.editor.create(editorRef.current, {
+      value: `var main << fct(){\n  show("Hello Zumbra!");\n};\n\nmain();`,
+      language: 'zumbra',
+      theme: 'zumbra-light',
+      automaticLayout: true,
+      minimap: { enabled: false },
+      fontSize: 14,
+      padding: { top: 20, bottom: 20 },
+    })
 
+    setEditor(instance)
+    instance.focus()
 
-        monaco.editor.defineTheme("zumbra-dark", {
-            base: "vs-dark",
-            inherit: true,
-            rules: [
-                ...Object.entries(reserved).map(([kw, color]) => ({
-                    token: `keyword.${kw}`,
-                    foreground: color.replace("#", ""),
-                })),
-                { token: "number", foreground: "d19a66" },
-                { token: "string", foreground: "98c379" },
-                { token: "comment", foreground: "5c6370", fontStyle: "italic" },
-            ],
-            colors: {},
-        });
+    const resize = () => instance.layout()
+    window.addEventListener('resize', resize)
 
-        const ed = monaco.editor.create(editorRef.current, {
-            value: `var main << fct(){\nshow("Hello Zumbra!");\n};\n\nmain();`,
-            language: "zumbra",
-            theme: "zumbra-dark",
-            automaticLayout: true,
-            minimap: { enabled: false },
-            fontSize: 14,
-        });
-
-        setEditor(ed);
-        ed.focus();
-
-        const resize = () => ed.layout();
-        window.addEventListener("resize", resize);
-        return () => {
-            window.removeEventListener("resize", resize);
-            ed.dispose();
-        };
-    }, []);
-
-    async function run() {
-        const code = editor?.getValue() ?? "";
-        setOut("running... it can take time, we are using free services :)");
-        const res = await fetch(`${API_URL}/api/run`, {
-            method: "POST",
-            headers: { "content-type": "application/json" },
-            body: JSON.stringify({ code }),
-        });
-        const data = await res.json();
-        if (data.error) setOut("erro: " + data.error);
-        else setOut(`exit=${data.exitCode}\n${data.stderr || ""}${data.stdout || ""}`);
+    return () => {
+      window.removeEventListener('resize', resize)
+      instance.dispose()
     }
+  }, [])
 
-    return (
-        <div style={{ display: "flex", width: "100%", height: "100%" }}>
-            <div
-                ref={editorRef}
-                style={{ flex: 1, height: "100%", width: "calc(100% - 420px)" }}
-            />
-            <div style={{ width: 420, padding: 12, background: "#0f111a", color: "#e6e6e6" }}>
-                <button onClick={run} style={{ padding: "8px 12px", marginBottom: 12 }}>▶ Run</button>
-                <pre style={{ whiteSpace: "pre-wrap", margin: 0 }}>{out}</pre>
-            </div>
-        </div>
-    );
+  async function run() {
+    const code = editor?.getValue() ?? ''
+    setOut('running...')
+
+    try {
+      const res = await fetch(`${API_URL}/api/run`, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ code }),
+      })
+      const data = await res.json()
+
+      if (data.error) {
+        setOut('error: ' + data.error)
+        return
+      }
+
+      setOut(`exit=${data.exitCode}\n${data.stderr || ''}${data.stdout || ''}`)
+    } catch (error) {
+      setOut(error instanceof Error ? error.message : 'Unable to run code right now.')
+    }
+  }
+
+  return (
+    <div className="playground-shell">
+      <div className="playground-topbar">
+        <a href="/" className="playground-brand">
+          <img src="/zumbra-mark.png" alt="Zumbra logo" />
+          <span>Back to site</span>
+        </a>
+        <button type="button" className="button button-primary" onClick={run}>
+          Run code
+        </button>
+      </div>
+
+      <div className="playground-layout">
+        <div ref={editorRef} className="playground-editor" />
+        <aside className="playground-output">
+          <p className="output-label">Output</p>
+          <pre>{out || 'Run a Zumbra snippet to see the result here.'}</pre>
+        </aside>
+      </div>
+    </div>
+  )
 }

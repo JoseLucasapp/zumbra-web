@@ -1,6 +1,6 @@
 const arrays = {
     "title": "Arrays",
-    "description": "Arrays are like herds — groups of elements moving together. With arrays, you can collect, organize, and manipulate data with grace and speed. Let's learn how to gather and guide your own herds!",
+    "description": "Arrays are like herds, groups of elements moving together. With arrays, you can collect, organize, and manipulate data with grace and speed. Let's learn how to gather and guide your own herds!",
     "content": [
         {
             "title": "Creating an array",
@@ -172,7 +172,7 @@ const basics = {
             "title": "Global and local variables with var",
             "data": [
                 {
-                    "text": "Mark your territory — create variables scoped to their plains."
+                    "text": "Mark your territory, create variables scoped to their plains."
                 },
                 {
                     "code": "var bestLanguageInTheWorld << \"Zumbra\";\nvar zumbra << \"The best language in the world\";"
@@ -183,7 +183,7 @@ const basics = {
             "title": "Custom assignment operator <<",
             "data": [
                 {
-                    "text": "Bind with strength — assign values in true Zumbra fashion."
+                    "text": "Bind with strength, assign values in true Zumbra fashion."
                 },
                 {
                     "text": "So, you laughed about my math skills, so let’s see who is laughing now, where are your “=”??, not here baby."
@@ -197,7 +197,7 @@ const basics = {
             "title": "See outputs with show",
             "data": [
                 {
-                    "text": "Make the zebra speak — print values to the terminal."
+                    "text": "Make the zebra speak, print values to the terminal."
                 },
                 {
                     "code": "show(\"Zumbra\"); //output: Zumbra"
@@ -205,7 +205,7 @@ const basics = {
             ]
         },
         {
-            "title": "Arithmetic and logical operations (+, -, *, /, < , > , ==, <=, >=)",
+            "title": "Arithmetic and logical operations (+, -, *, /, <, >, ==, <=, >=)",
             "data": [
                 {
                     "text": "Master the dance of numbers and truths."
@@ -270,7 +270,7 @@ const installation = {
 
 const dicts = {
     "title": "Dicts",
-    "description": "Sometimes, it's not enough to have just a list — you need names, maps, and meaning. Here dictionaries allow you to associate keys and values, creating powerful collections of knowledge. Let’s see how to build your own fields of wisdom.",
+    "description": "Sometimes, it's not enough to have just a list, you need names, maps, and meaning. Here dictionaries allow you to associate keys and values, creating powerful collections of knowledge. Let’s see how to build your own fields of wisdom.",
     "content": [
         {
             "title": "Creating a dict",
@@ -428,13 +428,35 @@ const conditionals = {
 
 const loops = {
     "title": "Loops",
-    "description": "A zebra doesn't stop running just because it feels like it. In Zumbra, while lets your code keep running — until you tell it otherwise!",
+    "description": "Zumbra supports both `while` loops and collection iteration with `for ... in`.",
     "content": [
         {
             "title": "Using while",
             "data": [
                 {
-                    "code": "var x << 0;\nwhile (x < 3) {\n     x << x + 1; // add 1 to x in each iteration\n};\nshow(x); // output: 3"
+                    "code": "var x << 0;\nwhile (x < 3) {\n  x << x + 1;\n};\nshow(x); // output: 3"
+                }
+            ]
+        },
+        {
+            "title": "Using for over arrays",
+            "data": [
+                {
+                    "code": "var a << [1,2,3];\n\nfor i in a{\n    show(i);\n}"
+                },
+                {
+                    "text": "Use `for item in array` to iterate through collections."
+                }
+            ]
+        },
+        {
+            "title": "Using for with filtering",
+            "data": [
+                {
+                    "code": "var a << [1,2,3,4,5,6];\n\nfor i in a where i % 2 == 0{\n    show(i);\n}"
+                },
+                {
+                    "text": "You can add a `where` clause to filter values during iteration."
                 }
             ]
         }
@@ -585,7 +607,7 @@ const math = {
 
 const http = {
     "title": "HTTP",
-    "description": "HTTP is the backbone of the modern web. With Zumbra, you can easily create servers and APIs by registering routes, serving files, and processing data. Let’s explore how to use these tools!",
+    "description": "Zumbra can consume APIs, serve static files, render HTML, and define REST endpoints.",
     "content": [
         {
             "title": "Make a GET request and parse JSON",
@@ -594,46 +616,59 @@ const http = {
                     "code": "var getIp << get(\"https://httpbin.org/ip\");\nvar json << json_parse(getIp[\"body\"]);\nshow(json[\"origin\"]);"
                 },
                 {
-                    "text": "Use `get(url)` to make an HTTP GET request. The result contains the body, status code, and headers.\n\nUse `json_parse()` to convert the response `body` into a usable JSON object."
+                    "text": "Use `get(url)` to make HTTP GET requests and `json_parse()` to convert the response body into a usable object."
                 }
             ]
         },
         {
-            "title": "Register simple routes",
+            "title": "Register simple HTML routes",
             "data": [
                 {
-                    "code": "registerRoute(\"/\", \"&lt;h1&gt;Home&lt;/h1&gt;\");\nregisterRoute(\"/about\", \"&lt;h1&gt;About&lt;/h1&gt;\");\nregisterRoute(\"/contact\", \"&lt;h1&gt;Contact&lt;/h1&gt;\");\n\nserver(3333);"
+                    "code": "registerRoute(\"/\", \"<h1>Home</h1>\");\nregisterRoute(\"/about\", \"<h1>About</h1>\");\nregisterRoute(\"/contact\", \"<h1>Contact</h1>\");\n\nserver(3333);"
                 },
                 {
-                    "text": "Use `registerRoute(path, html)` to define routes that return raw HTML.\n\nStart the server with `server(port)` to make your app accessible on the desired port."
+                    "text": "Use `registerRoute(path, html)` for simple GET routes returning HTML."
                 }
             ]
         },
         {
-            "title": "Serve static files (CSS, JS, images)",
+            "title": "Use html() helper",
+            "data": [
+                {
+                    "code": "registerRoute(\"/\", html(\"<h1>Home</h1>\"));\nserver(3333);"
+                }
+            ]
+        },
+        {
+            "title": "Serve static assets",
             "data": [
                 {
                     "code": "serveStatic(\"/static\", \"./code_examples/http/html/assets\");\nserver(3333);"
                 },
                 {
-                    "text": "`serveStatic(urlPath, folder)` maps a URL to a local folder with static files.\n\nThis allows you to serve images, JS files, and CSS, just like popular web frameworks."
+                    "text": "Use `serveStatic(urlPrefix, localFolder)` to expose CSS, JS, and image files."
                 }
             ]
         },
         {
-            "title": "Use HTML files as response with template data",
+            "title": "Render HTML files with template data",
             "data": [
                 {
-                    "code": "registerRoute(\"GET\", \"/\", serveFile(\"./code_examples/http/html/template.html\", {\"name\": \"Zumbra\"}));\nserver(3333);"
+                    "code": "registerRoute(\"/\", serveFile(\"./code_examples/http/html/index.html\", {\"name\": \"Zumbra\"}));\nserver(3333);"
                 },
                 {
-                    "text": "Use `serveFile(path, data)` to return an HTML file with variable substitution. Keys in `data` replace `{{keys}}` inside the HTML file.\n\nSee an example template below."
+                    "text": "Use `serveFile(path, data)` to load an HTML file and replace `{{key}}` placeholders."
+                }
+            ]
+        },
+        {
+            "title": "Create REST APIs with restGet and restPost",
+            "data": [
+                {
+                    "code": "restGet(\"/health\", fct(req, res) {\n    res.json({\n        \"ok\": true,\n        \"method\": req.method\n    });\n});\n\nrestGet(\"/users/:id\", fct(req, res) {\n    res.json({\n        \"id\": req.params[\"id\"],\n        \"query\": req.query\n    });\n});\n\nrestPost(\"/users\", fct(req, res) {\n    res.status(201);\n    res.json({\n        \"created\": true,\n        \"body\": req.body\n    });\n});\n\nserver(3333);"
                 },
                 {
-                    "text": "Example `template.html`:"
-                },
-                {
-                    "code": "<!DOCTYPE html>\n<html>\n<head>\n  <title>Welcome</title>\n</head>\n<body>\n  <h1>Hello, {{name}}!</h1>\n</body>\n</html>"
+                    "text": "Use `restGet`, `restPost`, `restPut`, `restPatch`, and `restDelete` for JSON APIs."
                 }
             ]
         }
@@ -643,7 +678,7 @@ const http = {
 
 const strings = {
     "title": "Strings",
-    "description": "Strings are the voice of your code — carrying messages, labels, and even poetry. With Zumbra, you can easily transform, clean, and format strings to fit your needs. Let's explore how to work with text!",
+    "description": "Strings are the voice of your code, carrying messages, labels, and even poetry. With Zumbra, you can easily transform, clean, and format strings to fit your needs. Let's explore how to work with text!",
     "content": [
         {
             "title": "Capitalize the first letter",
@@ -720,7 +755,7 @@ const build = {
 
 const mysqlExamples = {
     "title": "MySQL",
-    "description": "With Zumbra, you can connect to MySQL databases and perform operations like creating tables, inserting records, updating, deleting, and selecting data — all with simple built-in functions.",
+    "description": "With Zumbra, you can connect to MySQL databases and perform operations like creating tables, inserting records, updating, deleting, and selecting data, all with simple built-in functions.",
     "content": [
         {
             "title": "Connect to database",
@@ -813,5 +848,191 @@ const mysqlExamples = {
     ]
 }
 
+const switchCaseExamples = {
+    "title": "Switch Case",
+    "description": "Use `switchCase(value, cases, defaultValue)` to map values to results in a clean way.",
+    "content": [
+        {
+            "title": "Switching strings",
+            "data": [
+                {
+                    "code": "var role << \"admin\";\n\nvar message << switchCase(role, {\n    \"admin\": \"full access\",\n    \"editor\": \"limited access\",\n    \"guest\": \"read only\"\n}, \"unknown role\");\n\nshow(message);"
+                }
+            ]
+        },
+        {
+            "title": "Switching numbers",
+            "data": [
+                {
+                    "code": "var status << 404;\n\nvar result << switchCase(status, {\n    200: \"success\",\n    400: \"bad request\",\n    404: \"not found\",\n    500: \"internal server error\"\n}, \"unknown status\");\n\nshow(result);"
+                }
+            ]
+        },
+        {
+            "title": "Switching booleans",
+            "data": [
+                {
+                    "code": "var isLogged << true;\n\nvar message << switchCase(isLogged, {\n    true: \"user authenticated\",\n    false: \"user not authenticated\"\n}, \"unknown\");\n\nshow(message);"
+                }
+            ]
+        }
+    ]
+}
 
-export const docsData = () => [installation, basics, inputAndOutput, strings, types, math, conditionals, loops, arrays, dicts, functions, messaging, extras, http, mysqlExamples, build]
+const jwtExamples = {
+    "title": "JWT",
+    "description": "Create and verify JSON Web Tokens directly in Zumbra.",
+    "content": [
+        {
+            "title": "Create and verify a token",
+            "data": [
+                {
+                    "code": "var token << jwtCreateToken(\"Lucas\", \"abc\", 1);\nshow(jwtVerifyToken(token)); // output: Lucas"
+                },
+                {
+                    "text": "`jwtCreateToken(username, secret, expirationHours)` creates a token. `jwtVerifyToken(token)` validates it and returns the username."
+                }
+            ]
+        }
+    ]
+}
+
+const fileGeneration = {
+    "title": "File Generation",
+    "description": "Zumbra can generate local files such as TXT, CSV, DOC, and PDF.",
+    "content": [
+        {
+            "title": "Create TXT, CSV, DOC, and PDF files",
+            "data": [
+                {
+                    "code": "createTxt(\"./tmp/notes.txt\", \"Hello from Zumbra\");\n\ncreateCsv(\"./tmp/users.csv\", [\n    [\"name\", \"role\"],\n    [\"Lucas\", \"admin\"],\n    [\"Alan\", \"backend\"]\n]);\n\ncreateDoc(\"./tmp/report.doc\", \"Weekly report\", \"Everything is running fine.\");\ncreatePdf(\"./tmp/report.pdf\", \"Weekly report\", \"Everything is running fine.\\nGenerated by Zumbra.\");"
+                },
+                {
+                    "text": "Use file generation helpers when you need exports, reports, or local artifacts."
+                }
+            ]
+        }
+    ]
+}
+
+const postgresExamples = {
+    "title": "Postgres",
+    "description": "Connect to PostgreSQL and execute SQL queries from Zumbra.",
+    "content": [
+        {
+            "title": "Connect and query",
+            "data": [
+                {
+                    "code": "dotenvLoad(\".env\");\n\nvar pgUrl << dotenvGet(\"POSTGRES_URL\") or \"postgres://postgres:postgres@localhost:5432/app?sslmode=disable\";\npostgresConnection(pgUrl);\n\nvar rows << postgresQuery(\"SELECT NOW() as now;\");\nvar rows2 << postgresQuery(\"SELECT * from users;\");\nshow(rows);\nshow(rows2);"
+                },
+                {
+                    "text": "Use `postgresConnection(url)` to connect and `postgresQuery(sql)` to retrieve data."
+                }
+            ]
+        }
+    ]
+}
+
+const redisExamples = {
+    "title": "Redis",
+    "description": "Use Redis for cache and fast key-value storage.",
+    "content": [
+        {
+            "title": "Connect, set, get, and delete keys",
+            "data": [
+                {
+                    "code": "dotenvLoad(\".env\");\n\nvar redisHost << dotenvGet(\"REDIS_HOST\") or \"localhost:6379\";\nvar redisPassword << dotenvGet(\"REDIS_PASSWORD\") or \"\";\nvar redisDb << toInt(dotenvGet(\"REDIS_DB\") or 0);\n\nredisConnection(redisHost, redisPassword, redisDb);\n\nredisSet(\"app:name\", \"Zumbra\");\nredisSet(\"app:version\", \"0.1.0\");\n\nvar appName << redisGet(\"app:name\");\nshow(appName);\n\nredisDel(\"app:version\");"
+                }
+            ]
+        },
+        {
+            "title": "Simple cache example",
+            "data": [
+                {
+                    "code": "dotenvLoad(\".env\");\n\nredisConnection(\n    dotenvGet(\"REDIS_HOST\") or \"localhost:6379\",\n    dotenvGet(\"REDIS_PASSWORD\") or \"\",\n    toInt(dotenvGet(\"REDIS_DB\") or 0)\n);\n\nvar cachedAlbums << redisGet(\"albums:list\");\n\nif (cachedAlbums) {\n    show(\"cache hit\");\n    show(cachedAlbums);\n} else {\n    show(\"cache miss\");\n    redisSet(\"albums:list\", \"[1,2,3]\");\n}"
+                }
+            ]
+        }
+    ]
+}
+
+const supabaseExamples = {
+    "title": "Supabase",
+    "description": "Zumbra includes helpers for Supabase database, storage, auth, and RPC operations.",
+    "content": [
+        {
+            "title": "Connect to Supabase",
+            "data": [
+                {
+                    "code": "dotenvLoad(\".env\");\n\nsupabaseConnection(\n    dotenvGet(\"SUPABASE_URL\"),\n    dotenvGet(\"SUPABASE_KEY\")\n);"
+                }
+            ]
+        },
+        {
+            "title": "Select and query data",
+            "data": [
+                {
+                    "code": "var result << supabaseSelect(\"albums\", \"id,title,artist\");\nshow(result);\n\nvar filtered << supabaseQuery(\"albums\", \"select=id,title,artist&artist=eq.Linkin Park&order=id.desc\");\nshow(filtered);"
+                }
+            ]
+        },
+        {
+            "title": "Insert, update, and delete",
+            "data": [
+                {
+                    "code": "var inserted << supabaseInsert(\"albums\", {\n    \"title\": \"Meteora\",\n    \"artist\": \"Linkin Park\"\n});\nshow(inserted);\n\nvar updated << supabaseUpdate(\"albums\", \"id=eq.1\", {\n    \"title\": \"Hybrid Theory\"\n});\nshow(updated);\n\nvar deleted << supabaseDelete(\"albums\", \"id=eq.1\");\nshow(deleted);"
+                }
+            ]
+        },
+        {
+            "title": "Single record, count, and RPC",
+            "data": [
+                {
+                    "code": "var album << supabaseSingle(\"albums\", \"select=*&id=eq.1\");\nshow(album);\n\nvar total << supabaseCount(\"albums\", \"artist=eq.Linkin Park\");\nshow(total);\n\nvar rpcResult << supabaseRpc(\"get_album_stats\", {\n    \"artist_name\": \"Linkin Park\"\n});\nshow(rpcResult);"
+                }
+            ]
+        },
+        {
+            "title": "Storage helpers",
+            "data": [
+                {
+                    "code": "var publicUrl << supabaseStoragePublicUrl(\"images\", \"covers/test.txt\");\nshow(publicUrl);\n\nvar signedUrl << supabaseStorageSignedUrl(\"images\", \"covers/test.txt\", 3600);\nshow(signedUrl);\n\nvar fileBase64 << supabaseStorageDownload(\"images\", \"covers/test.txt\");\nshow(fileBase64);"
+                }
+            ]
+        },
+        {
+            "title": "Supabase Auth",
+            "data": [
+                {
+                    "code": "var signup << supabaseAuthSignUp(\"user@email.com\", \"12345678\");\nshow(signup);\n\nvar signin << supabaseAuthSignIn(\"user@email.com\", \"12345678\");\nshow(signin);"
+                }
+            ]
+        }
+    ]
+}
+
+
+export const docsData = () => [
+    installation,
+    basics,
+    inputAndOutput,
+    strings,
+    types,
+    math,
+    conditionals,
+    loops,
+    switchCaseExamples,
+    arrays,
+    dicts,
+    functions,
+    jwtExamples,
+    messaging,
+    extras,
+    fileGeneration,
+    http,
+    postgresExamples,
+    redisExamples,
+    supabaseExamples,
+    mysqlExamples,
+    build,
+]
