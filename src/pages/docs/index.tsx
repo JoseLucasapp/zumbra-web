@@ -2,9 +2,9 @@ import { useMemo, useState } from 'react'
 import SiteShell from '../../components/SiteShell'
 import { docsData } from './docs'
 import { reserved } from '../../helpers/utils'
+import './style.css'
 
 const sections = docsData()
-
 
 function escapeHtml(value: string) {
   return value
@@ -46,68 +46,93 @@ export default function Docs() {
       <section className="page-hero shell-container docs-hero">
         <div>
           <span className="eyebrow">Documentation</span>
-          <h1>Keep the docs close and the interface calm.</h1>
+          <h1>Zumbra documentation.</h1>
           <p>
-            The documentation area remains a core part of the site, but now with a clearer hierarchy, lighter spacing, and better focus on the actual language content.
+            Explore the language, built-ins, integrations, async features, error handling,
+            and the growing Zumbra ecosystem in a cleaner documentation layout.
           </p>
         </div>
       </section>
 
       <section className="content-section shell-container docs-layout">
         <aside className="docs-sidebar">
-          <label htmlFor="doc-selector">Section</label>
-          <select
-            id="doc-selector"
-            value={selectedIndex}
-            onChange={(event) => setSelectedIndex(Number(event.target.value))}
-          >
-            {sections.map((section, index) => (
-              <option key={section.title} value={index}>
-                {section.title}
-              </option>
-            ))}
-          </select>
+          <div className="docs-sidebar-card">
+            <div className="docs-sidebar-top">
+              <span className="docs-sidebar-kicker">Documentation</span>
+              <h3>Contents</h3>
+            </div>
 
-          <div className="docs-summary-card">
-            <h2>{currentSection.title}</h2>
-            <p>{currentSection.description}</p>
+            <nav className="docs-side-nav" aria-label="Documentation sections">
+              <ul className="docs-side-list">
+                {sections.map((section, index) => {
+                  const isActive = selectedIndex === index
+
+                  return (
+                    <li key={section.title}>
+                      <button
+                        type="button"
+                        className={`docs-side-link ${isActive ? 'is-active' : ''}`}
+                        onClick={() => setSelectedIndex(index)}
+                      >
+                        <span className="docs-side-link-label">{section.title}</span>
+                      </button>
+                    </li>
+                  )
+                })}
+              </ul>
+            </nav>
           </div>
         </aside>
 
-        <div className="docs-content">
-          {currentSection.content?.map((group: any) => (
-            <article key={group.title} className="docs-block">
-              <h3>{group.title}</h3>
-              <div className="docs-items">
-                {group.data.map((item: any, index: number) => {
-                  if (item.link) {
+        <main className="docs-main">
+          <header className="docs-main-header">
+            <span className="eyebrow">Section</span>
+            <h2>{currentSection.title}</h2>
+            <p>{currentSection.description}</p>
+          </header>
+
+          <div className="docs-content">
+            {currentSection.content?.map((group: any) => (
+              <article key={group.title} className="docs-block">
+                <h3>{group.title}</h3>
+
+                <div className="docs-items">
+                  {group.data.map((item: any, index: number) => {
+                    if (item.link) {
+                      return (
+                        <a
+                          key={`${group.title}-${index}`}
+                          href={item.link}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="docs-link-card"
+                        >
+                          {item.text}
+                        </a>
+                      )
+                    }
+
+                    if (item.code) {
+                      return (
+                        <div
+                          key={`${group.title}-${index}`}
+                          className="code-block"
+                          dangerouslySetInnerHTML={{ __html: highlightCode(item.code) }}
+                        />
+                      )
+                    }
+
                     return (
-                      <a key={`${group.title}-${index}`} href={item.link} target="_blank" rel="noreferrer" className="docs-link-card">
+                      <p key={`${group.title}-${index}`} className="docs-paragraph">
                         {item.text}
-                      </a>
+                      </p>
                     )
-                  }
-
-                  if (item.code) {
-                    return (
-                      <div
-                        key={`${group.title}-${index}`}
-                        className="code-block"
-                        dangerouslySetInnerHTML={{ __html: highlightCode(item.code) }}
-                      />
-                    )
-                  }
-
-                  return (
-                    <p key={`${group.title}-${index}`} className="docs-paragraph">
-                      {item.text}
-                    </p>
-                  )
-                })}
-              </div>
-            </article>
-          ))}
-        </div>
+                  })}
+                </div>
+              </article>
+            ))}
+          </div>
+        </main>
       </section>
     </SiteShell>
   )

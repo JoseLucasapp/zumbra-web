@@ -451,3 +451,102 @@
         font-size: 20px;
     }
 }
+
+.community-card {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 2rem;
+    align-items: center;
+    padding: 2rem;
+    border: 1px solid rgba(32, 28, 56, 0.08);
+    border-radius: 28px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(245, 242, 255, 0.92));
+}
+
+.community-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.community-text {
+    margin: 0;
+    color: #443d57;
+    font-size: 1rem;
+    line-height: 1.75;
+    max-width: 60ch;
+}
+
+.community-points {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+}
+
+.community-point {
+    padding: 0.9rem 1rem;
+    border-radius: 16px;
+    background: #ffffff;
+    border: 1px solid rgba(68, 46, 120, 0.1);
+    color: #2d2542;
+    font-size: 0.95rem;
+    line-height: 1.45;
+}
+
+.community-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.community-badge-card {
+    width: 100%;
+    max-width: 320px;
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+    border-radius: 28px;
+    background: radial-gradient(circle at top, rgba(109, 40, 217, 0.14), rgba(14, 18, 38, 0.05));
+    border: 1px solid rgba(31, 26, 54, 0.08);
+}
+
+.community-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    width: fit-content;
+    padding: 0.65rem 0.9rem;
+    border-radius: 999px;
+    background: rgba(109, 40, 217, 0.09);
+    color: #2f235a;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.community-badge-dot {
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 999px;
+    background: #6d28d9;
+}
+
+.community-visual-text {
+    margin: 0;
+    color: #1f1835;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+@media (max-width: 900px) {
+    .community-card {
+        grid-template-columns: 1fr;
+    }
+
+    .community-points {
+        grid-template-columns: 1fr;
+    }
+}

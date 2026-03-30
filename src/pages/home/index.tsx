@@ -5,6 +5,7 @@ import { externalLinks, highlights, principles, stats } from '../../data/site'
 import './style.css'
 
 const CURRENT_VERSION = '0.1.4'
+const DISCORD_LINK = 'https://discord.gg/6HFk38zY8Z'
 
 export default function Home() {
   return (
@@ -127,6 +128,49 @@ export default function Home() {
             <div className="hero-note">
               <span className="dot" />
               A lightweight editor for Zumbra and low-level tooling enthusiasts.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="content-section shell-container">
+        <div className="community-card">
+          <div className="community-copy">
+            <span className="eyebrow">Community</span>
+            <h2>Join the Zumbra Discord community.</h2>
+            <p className="community-text">
+              Talk about the language, share ideas, discuss features, follow updates,
+              and connect with people building with Zumbra and ZumbroIDE.
+            </p>
+
+            <div className="community-points">
+              <div className="community-point">Language discussions</div>
+              <div className="community-point">Feature ideas and feedback</div>
+              <div className="community-point">ZumbroIDE updates</div>
+              <div className="community-point">Docs, examples, and support</div>
+            </div>
+
+            <div className="hero-actions">
+              <a
+                className="button button-primary"
+                href={DISCORD_LINK}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Join Discord
+              </a>
+            </div>
+          </div>
+
+          <div className="community-visual">
+            <div className="community-badge-card">
+              <div className="community-badge">
+                <span className="community-badge-dot" />
+                Discord community
+              </div>
+              <p className="community-visual-text">
+                Build the ecosystem together.
+              </p>
             </div>
           </div>
         </div>
